@@ -105,25 +105,38 @@ def fetch_storm_position(slug):
 
 # ─── 3. GFS 下載 ───────────────────────────────────────────────
 def download_gfs_latest(out_path="/tmp/gfs_latest_500.grib2", cycle_hint=None):
-    from datetime import datetime as dt
-    utc = dt.utcnow()
-    cycles = [cycle_hint] if cycle_hint else ["12", "06", "00", "18"]
-    for cycle in cycles:
+    """下載最新可用 GFS 500 hPa 分析場。
+
+    有 cycle_hint：指定 cycle 今日 + 昨日。
+    冇 hint：由而家 UTC 最近嘅 6h cycle 開始向後試（最多 4 個），
+    保證攞到「最新已出」嘅分析場，唔會跳去舊一日。
+    """
+    utc = datetime.now(timezone.utc)
+    candidates = []
+    if cycle_hint:
         for day_offset in [0, -1]:
             day = (utc + timedelta(days=day_offset)).strftime("%Y%m%d")
-            url = (f"https://nomads.ncep.noaa.gov/cgi-bin/filter_gfs_0p25.pl"
-                   f"?file=gfs.t{cycle}z.pgrb2.0p25.f000"
-                   f"&lev_500_mb=on&var_UGRD=on&var_VGRD=on"
-                   f"&dir=%2Fgfs.{day}%2F{cycle}%2Fatmos")
-            try:
-                req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-                with urllib.request.urlopen(req, timeout=60) as r:
-                    data = r.read()
-                Path(out_path).write_bytes(data)
-                print(f"✅ GFS {day} {cycle}Z → {out_path} ({len(data)/1e6:.1f} MB)")
-                return out_path, day, cycle
-            except Exception as e:
-                print(f"  ⏳ {day} {cycle}Z: {str(e)[:70]}")
+            candidates.append((day, cycle_hint))
+    else:
+        nearest = (utc.hour // 6) * 6  # 最近已到嘅 6h cycle 時刻（07:11 → 06Z）
+        for back in range(4):
+            t = (utc.replace(hour=0, minute=0, second=0, microsecond=0)
+                 + timedelta(hours=nearest - back * 6))
+            candidates.append((t.strftime("%Y%m%d"), f"{t.hour:02d}"))
+    for day, cycle in candidates:
+        url = (f"https://nomads.ncep.noaa.gov/cgi-bin/filter_gfs_0p25.pl"
+               f"?file=gfs.t{cycle}z.pgrb2.0p25.f000"
+               f"&lev_500_mb=on&var_UGRD=on&var_VGRD=on"
+               f"&dir=%2Fgfs.{day}%2F{cycle}%2Fatmos")
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                data = r.read()
+            Path(out_path).write_bytes(data)
+            print(f"✅ GFS {day} {cycle}Z → {out_path} ({len(data)/1e6:.1f} MB)")
+            return out_path, day, cycle
+        except Exception as e:
+            print(f"  ⏳ {day} {cycle}Z: {str(e)[:70]}")
     raise RuntimeError("GFS 下載失敗")
 
 
