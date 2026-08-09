@@ -1,0 +1,76 @@
+name: 🌀 WN1 Shadow Track (GFS 500hPa)
+
+on:
+  schedule:
+    - cron: '40 3,9,15,21 * * *'   # 每 6h，同 Dolphin 同步
+  workflow_dispatch:
+    inputs:
+      cycle:
+        description: 'GFS cycle YYYYMMDD,HH (留空 = 自動最新)'
+        required: false
+        default: ''
+      storms:
+        description: '覆寫颱風位置 NAME:lat,lon;... (留空 = 自動 cyclocane)'
+        required: false
+        default: ''
+
+jobs:
+  wn1:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libeccodes0 libeccodes-dev
+          pip install numpy cfgrib eccodes
+
+      - name: Run WN1 track
+        id: track
+        continue-on-error: true
+        env:
+          CYCLE: ${{ github.event.inputs.cycle }}
+          STORMS: ${{ github.event.inputs.storms }}
+        run: |
+          EXTRA=""
+          if [ -n "$CYCLE" ]; then EXTRA="$EXTRA --cycle $CYCLE"; fi
+          if [ -n "$STORMS" ]; then EXTRA="$EXTRA --storms '$STORMS'"; fi
+          python wn1_track.py $EXTRA 2>&1
+          echo "TRACK_OK=1" >> "$GITHUB_ENV"
+
+      - name: Commit results
+        if: success() || steps.track.outcome == 'failure'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "WN1-Shadow Bot"
+          git config user.email "bot@wn1-shadow.local"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/MMDR10/typhoon-wn1-shadow.git
+          git add wn1_history.json wn1_latest.md
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "🌀 WN1: auto-track $(date -u '+%Y-%m-%d %H:%M UTC')"
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "✅ Pushed on attempt $i"
+              exit 0
+            fi
+            echo "⚠️ Push attempt $i failed, pulling + retrying..."
+            git pull --rebase origin main || true
+            sleep $((i * 3))
+          done
+          echo "❌ Push failed after 5 attempts"
+          exit 1
