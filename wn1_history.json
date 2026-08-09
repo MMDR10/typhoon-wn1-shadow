@@ -1,0 +1,32 @@
+{
+  "records": [
+    {
+      "storm": "CHAN-HOM",
+      "storm_id": "14W",
+      "cycle": "2026-08-08T12:00",
+      "center_lat": 32.3,
+      "center_lon": 150.7,
+      "wn1_phi": 219.7,
+      "ellipt": 0.086,
+      "wn1_amp": 7.68,
+      "asym": 9.63,
+      "advisory_time": "091500",
+      "wind_kts": 35,
+      "recorded_at": "2026-08-09T14:30:49.664769+00:00"
+    },
+    {
+      "storm": "PEILOU",
+      "storm_id": "13W",
+      "cycle": "2026-08-08T12:00",
+      "center_lat": 21.2,
+      "center_lon": 142.7,
+      "wn1_phi": 67.8,
+      "ellipt": 0.721,
+      "wn1_amp": 6.77,
+      "asym": 8.43,
+      "advisory_time": "090900",
+      "wind_kts": 35,
+      "recorded_at": "2026-08-09T14:30:49.813956+00:00"
+    }
+  ]
+}
