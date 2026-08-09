@@ -43,6 +43,20 @@
       "recorded_at": "2026-08-09T16:01:38.107275+00:00"
     },
     {
+      "storm": "CHAN-HOM",
+      "storm_id": "14W",
+      "cycle": "2026-08-09T18:00",
+      "center_lat": 33.2,
+      "center_lon": 150.2,
+      "wn1_phi": 74.6,
+      "ellipt": 0.899,
+      "wn1_amp": 2.29,
+      "asym": 44.45,
+      "advisory_time": "092100",
+      "wind_kts": 35,
+      "recorded_at": "2026-08-09T22:01:40.362394+00:00"
+    },
+    {
       "storm": "PEILOU",
       "storm_id": "13W",
       "cycle": "2026-08-08T12:00",
@@ -83,6 +97,20 @@
       "advisory_time": "091500",
       "wind_kts": 35,
       "recorded_at": "2026-08-09T16:01:38.257341+00:00"
+    },
+    {
+      "storm": "PEILOU",
+      "storm_id": "13W",
+      "cycle": "2026-08-09T18:00",
+      "center_lat": 20.5,
+      "center_lon": 145.8,
+      "wn1_phi": 85.9,
+      "ellipt": 0.669,
+      "wn1_amp": 9.66,
+      "asym": 84.32,
+      "advisory_time": "092100",
+      "wind_kts": 35,
+      "recorded_at": "2026-08-09T22:01:40.479486+00:00"
     }
   ]
 }
