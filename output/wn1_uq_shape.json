@@ -1,0 +1,819 @@
+[
+  {
+    "storm": "HATO",
+    "iso": "2017-08-21 12:00",
+    "err": 23.405788929423608,
+    "ellipt": 0.139,
+    "dphi": 8.2,
+    "dell": 0.06,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HATO",
+    "iso": "2017-08-22 00:00",
+    "err": 36.42525862267905,
+    "ellipt": 0.182,
+    "dphi": 6.3,
+    "dell": 0.043,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HATO",
+    "iso": "2017-08-22 12:00",
+    "err": 19.599778858289085,
+    "ellipt": 0.396,
+    "dphi": 29.1,
+    "dell": 0.214,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HATO",
+    "iso": "2017-08-23 00:00",
+    "err": 29.996978906251172,
+    "ellipt": 0.246,
+    "dphi": 9.4,
+    "dell": 0.151,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HATO",
+    "iso": "2017-08-23 12:00",
+    "err": 12.546439576093576,
+    "ellipt": 0.267,
+    "dphi": 10.6,
+    "dell": 0.022,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-08 06:00",
+    "err": 36.19623408209969,
+    "ellipt": 0.138,
+    "dphi": 2.1,
+    "dell": 0.078,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-08 18:00",
+    "err": 12.803900946765793,
+    "ellipt": 0.053,
+    "dphi": 22.3,
+    "dell": 0.086,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-09 06:00",
+    "err": 5.550518166967834,
+    "ellipt": 0.028,
+    "dphi": 9.1,
+    "dell": 0.025,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-09 18:00",
+    "err": 19.649578903997224,
+    "ellipt": 0.207,
+    "dphi": 11.4,
+    "dell": 0.179,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-10 06:00",
+    "err": 27.827316521468873,
+    "ellipt": 0.134,
+    "dphi": 7.8,
+    "dell": 0.073,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-10 18:00",
+    "err": 31.351831382187754,
+    "ellipt": 0.054,
+    "dphi": 0.5,
+    "dell": 0.081,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-11 06:00",
+    "err": 28.71891597254313,
+    "ellipt": 0.064,
+    "dphi": 7.0,
+    "dell": 0.01,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-11 18:00",
+    "err": 13.802446506057379,
+    "ellipt": 0.358,
+    "dphi": 12.5,
+    "dell": 0.295,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-12 06:00",
+    "err": 12.442739960641632,
+    "ellipt": 0.194,
+    "dphi": 35.0,
+    "dell": 0.164,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-12 18:00",
+    "err": 0.2387491022856807,
+    "ellipt": 0.421,
+    "dphi": 13.6,
+    "dell": 0.227,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-13 06:00",
+    "err": 6.338763746155621,
+    "ellipt": 0.296,
+    "dphi": 0.7,
+    "dell": 0.125,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-13 18:00",
+    "err": 87.36298053094566,
+    "ellipt": 0.559,
+    "dphi": 60.1,
+    "dell": 0.263,
+    "flags": [
+      "dphi"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-14 06:00",
+    "err": 55.21959251181954,
+    "ellipt": 0.284,
+    "dphi": 20.6,
+    "dell": 0.275,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-14 18:00",
+    "err": 33.24594971786223,
+    "ellipt": 0.418,
+    "dphi": 10.9,
+    "dell": 0.134,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-15 06:00",
+    "err": 19.2923190275593,
+    "ellipt": 0.297,
+    "dphi": 28.7,
+    "dell": 0.121,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-15 18:00",
+    "err": 7.573498628291816,
+    "ellipt": 0.025,
+    "dphi": 13.8,
+    "dell": 0.272,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-16 06:00",
+    "err": 12.537410005381616,
+    "ellipt": 0.225,
+    "dphi": 18.3,
+    "dell": 0.199,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MANGKHUT",
+    "iso": "2018-09-16 18:00",
+    "err": 9.379495475137333,
+    "ellipt": 0.036,
+    "dphi": 15.9,
+    "dell": 0.188,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-24 18:00",
+    "err": 84.5386553690191,
+    "ellipt": 0.645,
+    "dphi": 39.0,
+    "dell": 0.188,
+    "flags": [
+      "ellipt"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-25 06:00",
+    "err": 56.93213166671595,
+    "ellipt": 0.636,
+    "dphi": 4.5,
+    "dell": 0.009,
+    "flags": [
+      "ellipt"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-25 18:00",
+    "err": 32.39778019347486,
+    "ellipt": 0.628,
+    "dphi": 6.0,
+    "dell": 0.008,
+    "flags": [
+      "ellipt"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-26 06:00",
+    "err": 37.834408608906216,
+    "ellipt": 0.675,
+    "dphi": 1.8,
+    "dell": 0.047,
+    "flags": [
+      "ellipt"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-26 18:00",
+    "err": 104.85384761094878,
+    "ellipt": 0.838,
+    "dphi": 80.5,
+    "dell": 0.163,
+    "flags": [
+      "ellipt",
+      "dphi"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-27 06:00",
+    "err": 47.17492201786928,
+    "ellipt": 1.584,
+    "dphi": 0.6,
+    "dell": 0.746,
+    "flags": [
+      "ellipt",
+      "dell"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-27 18:00",
+    "err": 15.098439160893633,
+    "ellipt": 0.833,
+    "dphi": 46.4,
+    "dell": 0.751,
+    "flags": [
+      "ellipt",
+      "dell"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-28 06:00",
+    "err": 5.184669580867592,
+    "ellipt": 0.335,
+    "dphi": 49.6,
+    "dell": 0.498,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-28 18:00",
+    "err": 13.45066303460544,
+    "ellipt": 0.782,
+    "dphi": 41.0,
+    "dell": 0.448,
+    "flags": [
+      "ellipt"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-29 06:00",
+    "err": 29.819266348312738,
+    "ellipt": 0.546,
+    "dphi": 16.9,
+    "dell": 0.237,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-29 18:00",
+    "err": 27.928476431939544,
+    "ellipt": 0.488,
+    "dphi": 21.1,
+    "dell": 0.057,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-30 06:00",
+    "err": 9.553986497562732,
+    "ellipt": 0.742,
+    "dphi": 18.4,
+    "dell": 0.253,
+    "flags": [
+      "ellipt"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-30 18:00",
+    "err": 38.46364882148566,
+    "ellipt": 2.94,
+    "dphi": 49.1,
+    "dell": 2.199,
+    "flags": [
+      "ellipt",
+      "dell"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-31 06:00",
+    "err": 90.2233124763265,
+    "ellipt": 1.121,
+    "dphi": 55.4,
+    "dell": 1.819,
+    "flags": [
+      "ellipt",
+      "dell"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-08-31 18:00",
+    "err": 58.13121669481552,
+    "ellipt": 1.549,
+    "dphi": 38.2,
+    "dell": 0.428,
+    "flags": [
+      "ellipt"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-09-01 06:00",
+    "err": 43.520529871551105,
+    "ellipt": 0.34,
+    "dphi": 31.6,
+    "dell": 1.209,
+    "flags": [
+      "dell"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-09-01 18:00",
+    "err": 37.76596237060539,
+    "ellipt": 0.446,
+    "dphi": 17.2,
+    "dell": 0.106,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "SAOLA",
+    "iso": "2023-09-02 06:00",
+    "err": 60.588693678953405,
+    "ellipt": 0.147,
+    "dphi": 27.0,
+    "dell": 0.298,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MERANTI",
+    "iso": "2016-09-10 18:00",
+    "err": 63.648030006869845,
+    "ellipt": 1.401,
+    "dphi": 60.4,
+    "dell": 0.592,
+    "flags": [
+      "ellipt",
+      "dphi",
+      "dell"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "MERANTI",
+    "iso": "2016-09-11 06:00",
+    "err": 28.33583294450966,
+    "ellipt": 0.609,
+    "dphi": 32.6,
+    "dell": 0.792,
+    "flags": [
+      "ellipt",
+      "dell"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "MERANTI",
+    "iso": "2016-09-11 18:00",
+    "err": 21.108607786146365,
+    "ellipt": 0.462,
+    "dphi": 6.3,
+    "dell": 0.147,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MERANTI",
+    "iso": "2016-09-12 06:00",
+    "err": 0.5715312295484978,
+    "ellipt": 0.133,
+    "dphi": 25.4,
+    "dell": 0.329,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MERANTI",
+    "iso": "2016-09-12 18:00",
+    "err": 17.91464801032714,
+    "ellipt": 0.271,
+    "dphi": 19.7,
+    "dell": 0.138,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MERANTI",
+    "iso": "2016-09-13 06:00",
+    "err": 18.751514555872575,
+    "ellipt": 0.392,
+    "dphi": 5.5,
+    "dell": 0.121,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MERANTI",
+    "iso": "2016-09-13 18:00",
+    "err": 15.282718227705743,
+    "ellipt": 0.353,
+    "dphi": 30.3,
+    "dell": 0.039,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "MERANTI",
+    "iso": "2016-09-14 06:00",
+    "err": 4.344048350508501,
+    "ellipt": 0.891,
+    "dphi": 31.6,
+    "dell": 0.539,
+    "flags": [
+      "ellipt",
+      "dell"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "MERANTI",
+    "iso": "2016-09-14 18:00",
+    "err": 47.79321341193463,
+    "ellipt": 0.189,
+    "dphi": 43.5,
+    "dell": 0.703,
+    "flags": [
+      "dell"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "MERANTI",
+    "iso": "2016-09-15 06:00",
+    "err": 9.934705414568498,
+    "ellipt": 0.261,
+    "dphi": 7.5,
+    "dell": 0.073,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-06 00:00",
+    "err": 40.37136649135934,
+    "ellipt": 0.206,
+    "dphi": 30.2,
+    "dell": 0.367,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-06 12:00",
+    "err": 40.24972617129944,
+    "ellipt": 0.477,
+    "dphi": 15.3,
+    "dell": 0.271,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-07 00:00",
+    "err": 51.30312827703548,
+    "ellipt": 0.596,
+    "dphi": 3.3,
+    "dell": 0.118,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-07 12:00",
+    "err": 1.812009218614321,
+    "ellipt": 0.364,
+    "dphi": 50.6,
+    "dell": 0.232,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-08 00:00",
+    "err": 19.687895025147498,
+    "ellipt": 0.223,
+    "dphi": 0.0,
+    "dell": 0.141,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-08 12:00",
+    "err": 41.195892532397295,
+    "ellipt": 0.108,
+    "dphi": 13.2,
+    "dell": 0.114,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-09 00:00",
+    "err": 25.669339166232476,
+    "ellipt": 0.232,
+    "dphi": 30.7,
+    "dell": 0.124,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-09 12:00",
+    "err": 43.16611371404775,
+    "ellipt": 1.564,
+    "dphi": 104.7,
+    "dell": 1.332,
+    "flags": [
+      "ellipt",
+      "dphi",
+      "dell"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-10 00:00",
+    "err": 74.44026308848487,
+    "ellipt": 0.489,
+    "dphi": 2.3,
+    "dell": 1.075,
+    "flags": [
+      "dell"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-10 12:00",
+    "err": 28.967006723432917,
+    "ellipt": 0.781,
+    "dphi": 46.2,
+    "dell": 0.292,
+    "flags": [
+      "ellipt"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-11 00:00",
+    "err": 1.0842893577653285,
+    "ellipt": 0.557,
+    "dphi": 23.9,
+    "dell": 0.224,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-11 12:00",
+    "err": 14.684394461626198,
+    "ellipt": 0.117,
+    "dphi": 8.8,
+    "dell": 0.44,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-12 00:00",
+    "err": 3.184893341340114,
+    "ellipt": 0.111,
+    "dphi": 29.7,
+    "dell": 0.006,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-12 12:00",
+    "err": 17.16147621877809,
+    "ellipt": 0.047,
+    "dphi": 4.7,
+    "dell": 0.064,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "HAGIBIS",
+    "iso": "2019-10-13 00:00",
+    "err": 7.102557624240774,
+    "ellipt": 0.077,
+    "dphi": 25.9,
+    "dell": 0.029,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "GONI",
+    "iso": "2020-10-29 00:00",
+    "err": 77.52562960418243,
+    "ellipt": 0.488,
+    "dphi": 8.2,
+    "dell": 0.042,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "GONI",
+    "iso": "2020-10-29 12:00",
+    "err": 83.78416750651053,
+    "ellipt": 0.707,
+    "dphi": 3.1,
+    "dell": 0.22,
+    "flags": [
+      "ellipt"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "GONI",
+    "iso": "2020-10-30 00:00",
+    "err": 60.22031134611342,
+    "ellipt": 0.602,
+    "dphi": 20.8,
+    "dell": 0.106,
+    "flags": [
+      "ellipt"
+    ],
+    "trustworthy": false
+  },
+  {
+    "storm": "GONI",
+    "iso": "2020-10-30 12:00",
+    "err": 63.507494713833125,
+    "ellipt": 0.567,
+    "dphi": 11.7,
+    "dell": 0.035,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "GONI",
+    "iso": "2020-10-31 00:00",
+    "err": 46.44288173244311,
+    "ellipt": 0.448,
+    "dphi": 21.8,
+    "dell": 0.119,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "GONI",
+    "iso": "2020-10-31 12:00",
+    "err": 19.76885096924667,
+    "ellipt": 0.087,
+    "dphi": 14.3,
+    "dell": 0.361,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "GONI",
+    "iso": "2020-11-01 00:00",
+    "err": 17.015278948536775,
+    "ellipt": 0.193,
+    "dphi": 8.5,
+    "dell": 0.106,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "GONI",
+    "iso": "2020-11-01 12:00",
+    "err": 0.3331261023130878,
+    "ellipt": 0.09,
+    "dphi": 16.2,
+    "dell": 0.103,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "GONI",
+    "iso": "2020-11-04 12:00",
+    "err": 20.01820796188531,
+    "ellipt": 0.32,
+    "dphi": 4.8,
+    "dell": 0.159,
+    "flags": [],
+    "trustworthy": true
+  },
+  {
+    "storm": "GONI",
+    "iso": "2020-11-05 00:00",
+    "err": 53.28109410831331,
+    "ellipt": 0.123,
+    "dphi": 6.0,
+    "dell": 0.197,
+    "flags": [],
+    "trustworthy": true
+  }
+]
