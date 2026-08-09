@@ -128,8 +128,8 @@ def download_gfs_latest(out_path="/tmp/gfs_latest_500.grib2", cycle_hint=None):
 
 
 def load_gfs(path):
-    import cfgrib
-    ds = cfgrib.open_dataset(path)
+    import xarray as xr
+    ds = xr.open_dataset(path, engine="cfgrib")
     lat = ds["latitude"].values
     lon = ds["longitude"].values
     u = ds["u"].values

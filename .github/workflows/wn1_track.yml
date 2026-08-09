@@ -34,7 +34,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libeccodes0 libeccodes-dev
-          pip install numpy cfgrib eccodes
+          pip install numpy xarray cfgrib eccodes
 
       - name: Run WN1 track
         id: track
@@ -57,7 +57,7 @@ jobs:
           git config user.name "WN1-Shadow Bot"
           git config user.email "bot@wn1-shadow.local"
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/MMDR10/typhoon-wn1-shadow.git
-          git add wn1_history.json wn1_latest.md
+          git add -A
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
