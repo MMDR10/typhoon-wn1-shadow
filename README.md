@@ -2,7 +2,7 @@
 
 **WN1 Shadow** 用 500 hPa 徑向風 wavenumber-1 相位（出流非對稱影子）預測活躍颱風移動方向，GitHub Actions 每 6 小時自動測量。
 
-**Paper / 論文：** [EN](paper_EN/paper_wn1_shadow_en.md) · [ZH](paper_ZH/paper_wn1_shadow_zh.md) · PDF ([EN](paper_EN/paper_wn1_shadow_en.pdf) / [ZH](paper_ZH/paper_wn1_shadow_zh.pdf)) · Zenodo DOI: *(待發布)*
+**Paper / 論文：** [EN](paper_EN/paper_wn1_shadow_en.md) · [ZH](paper_ZH/paper_wn1_shadow_zh.md) · PDF ([EN](paper_EN/paper_wn1_shadow_en.pdf) / [ZH](paper_ZH/paper_wn1_shadow_zh.pdf)) · [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21862294.svg)](https://doi.org/10.5281/zenodo.21862294)
 
 ## 🔬 方法
 
