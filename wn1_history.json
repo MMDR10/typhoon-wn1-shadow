@@ -71,6 +71,34 @@
       "recorded_at": "2026-08-10T05:09:23.464773+00:00"
     },
     {
+      "storm": "CHAN-HOM",
+      "storm_id": "14W",
+      "cycle": "2026-08-10T06:00",
+      "center_lat": 34.8,
+      "center_lon": 148.8,
+      "wn1_phi": 14.2,
+      "ellipt": 1.454,
+      "wn1_amp": 2.03,
+      "asym": 4.7,
+      "advisory_time": "100900",
+      "wind_kts": 40,
+      "recorded_at": "2026-08-10T10:46:36.423554+00:00"
+    },
+    {
+      "storm": "FIFTEEN",
+      "storm_id": "15W",
+      "cycle": "2026-08-10T06:00",
+      "center_lat": 27.1,
+      "center_lon": 160.7,
+      "wn1_phi": 83.5,
+      "ellipt": 0.515,
+      "wn1_amp": 4.03,
+      "asym": 31.72,
+      "advisory_time": "100900",
+      "wind_kts": 35,
+      "recorded_at": "2026-08-10T10:46:36.335347+00:00"
+    },
+    {
       "storm": "PEILOU",
       "storm_id": "13W",
       "cycle": "2026-08-08T12:00",
@@ -139,6 +167,20 @@
       "advisory_time": "100300",
       "wind_kts": 40,
       "recorded_at": "2026-08-10T05:09:23.618791+00:00"
+    },
+    {
+      "storm": "PEILOU",
+      "storm_id": "13W",
+      "cycle": "2026-08-10T06:00",
+      "center_lat": 21.1,
+      "center_lon": 151.0,
+      "wn1_phi": 65.0,
+      "ellipt": 0.373,
+      "wn1_amp": 14.16,
+      "asym": 53.47,
+      "advisory_time": "100900",
+      "wind_kts": 40,
+      "recorded_at": "2026-08-10T10:46:36.512184+00:00"
     },
     {
       "storm": "TROPICAL DEPRESSION FIFTEEN",
