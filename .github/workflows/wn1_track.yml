@@ -1,4 +1,4 @@
-name: 🌀 WN1 Shadow Track (GFS 500hPa)
+name: 🌀 Typhoon Monitor (WN1 路徑 + dH_curl 強度 + 鞍點環)
 
 on:
   schedule:
@@ -15,7 +15,7 @@ on:
         default: ''
 
 jobs:
-  wn1:
+  monitor:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -36,7 +36,7 @@ jobs:
           sudo apt-get install -y libeccodes0 libeccodes-dev
           pip install numpy xarray cfgrib eccodes
 
-      - name: Run WN1 track
+      - name: Run Typhoon Monitor (WN1 + dH_curl + Saddle Ring)
         id: track
         continue-on-error: true
         env:
@@ -46,7 +46,7 @@ jobs:
           EXTRA=""
           if [ -n "$CYCLE" ]; then EXTRA="$EXTRA --cycle $CYCLE"; fi
           if [ -n "$STORMS" ]; then EXTRA="$EXTRA --storms '$STORMS'"; fi
-          python wn1_track.py $EXTRA 2>&1
+          python typhoon_monitor.py $EXTRA 2>&1
           echo "TRACK_OK=1" >> "$GITHUB_ENV"
 
       - name: Commit results
@@ -62,7 +62,7 @@ jobs:
             echo "No changes to commit"
             exit 0
           fi
-          git commit -m "🌀 WN1: auto-track $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git commit -m "🌀 Typhoon Monitor: auto-track $(date -u '+%Y-%m-%d %H:%M UTC')"
           for i in 1 2 3 4 5; do
             if git push; then
               echo "✅ Pushed on attempt $i"
