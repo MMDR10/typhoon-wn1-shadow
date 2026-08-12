@@ -223,6 +223,34 @@
       "advisory_time": "120300",
       "wind_kts": 30,
       "recorded_at": "2026-08-12T05:16:55.868621+00:00"
+    },
+    {
+      "storm": "PEILOU",
+      "storm_id": "13W",
+      "cycle": "2026-08-12T06:00",
+      "center_lat": 30.1,
+      "center_lon": 162.7,
+      "wn1_phi": 75.8,
+      "ellipt": 0.513,
+      "wn1_amp": 7.49,
+      "asym": 12.04,
+      "dh_curl": -2.762e-05,
+      "H_core": 3.277e-05,
+      "H_shell": 5.15e-06,
+      "dh_mode": "organized",
+      "saddle": {
+        "n_saddle": 170,
+        "window_deg": 6.0,
+        "D_obs": 0.89,
+        "D_fill_null": 0.882,
+        "D_circle_null": 0.844,
+        "D_all_points": 1.095,
+        "D_fold": 0.009,
+        "z_vs_circle": 4.24
+      },
+      "advisory_time": "120900",
+      "wind_kts": 30,
+      "recorded_at": "2026-08-12T10:39:34.097334+00:00"
     }
   ]
 }
