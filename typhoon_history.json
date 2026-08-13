@@ -169,6 +169,34 @@
       "recorded_at": "2026-08-13T05:21:10.838218+00:00"
     },
     {
+      "storm": "NANGKA",
+      "storm_id": "16W",
+      "cycle": "2026-08-13T06:00",
+      "center_lat": 27.8,
+      "center_lon": 149.9,
+      "wn1_phi": 63.8,
+      "ellipt": 0.601,
+      "wn1_amp": 10.71,
+      "asym": 28.49,
+      "dh_curl": -2.214e-05,
+      "H_core": 2.301e-05,
+      "H_shell": 8.7e-07,
+      "dh_mode": "organized",
+      "saddle": {
+        "n_saddle": 194,
+        "window_deg": 6.0,
+        "D_obs": 0.932,
+        "D_fill_null": 0.917,
+        "D_circle_null": 0.871,
+        "D_all_points": 1.096,
+        "D_fold": 0.015,
+        "z_vs_circle": 5.77
+      },
+      "advisory_time": "130900",
+      "wind_kts": 35,
+      "recorded_at": "2026-08-13T10:41:19.766503+00:00"
+    },
+    {
       "storm": "PEILOU",
       "storm_id": null,
       "cycle": "2026-08-11T00:00",
@@ -421,6 +449,34 @@
       "recorded_at": "2026-08-13T05:21:11.036162+00:00"
     },
     {
+      "storm": "PEILOU",
+      "storm_id": "13W",
+      "cycle": "2026-08-13T06:00",
+      "center_lat": 32.0,
+      "center_lon": 168.0,
+      "wn1_phi": 91.8,
+      "ellipt": 0.151,
+      "wn1_amp": 8.21,
+      "asym": 16.99,
+      "dh_curl": -1.869e-05,
+      "H_core": 2.878e-05,
+      "H_shell": 1.009e-05,
+      "dh_mode": "organized",
+      "saddle": {
+        "n_saddle": 172,
+        "window_deg": 6.0,
+        "D_obs": 0.892,
+        "D_fill_null": 0.881,
+        "D_circle_null": 0.845,
+        "D_all_points": 1.091,
+        "D_fold": 0.011,
+        "z_vs_circle": 4.2
+      },
+      "advisory_time": "130900",
+      "wind_kts": 30,
+      "recorded_at": "2026-08-13T10:41:19.908668+00:00"
+    },
+    {
       "storm": "POTENTIAL TROPICAL CYCLONE ONE",
       "storm_id": null,
       "cycle": "2026-08-12T12:00",
@@ -476,6 +532,25 @@
       "advisory_time": null,
       "wind_kts": 35,
       "recorded_at": "2026-08-13T05:21:11.225149+00:00"
+    },
+    {
+      "storm": "POTENTIAL TROPICAL CYCLONE ONE",
+      "storm_id": null,
+      "cycle": "2026-08-13T06:00",
+      "center_lat": 14.7,
+      "center_lon": -144.1,
+      "wn1_phi": 334.6,
+      "ellipt": 0.745,
+      "wn1_amp": 3.6,
+      "asym": 5.49,
+      "dh_curl": -3.504e-05,
+      "H_core": 3.41e-05,
+      "H_shell": -9.3e-07,
+      "dh_mode": "collapse",
+      "saddle": null,
+      "advisory_time": null,
+      "wind_kts": 35,
+      "recorded_at": "2026-08-13T10:41:20.041466+00:00"
     }
   ]
 }
