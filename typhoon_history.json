@@ -180,6 +180,25 @@
       "recorded_at": "2026-08-14T16:28:33.315977+00:00"
     },
     {
+      "storm": "LALA",
+      "storm_id": null,
+      "cycle": "2026-08-14T18:00",
+      "center_lat": 17.0,
+      "center_lon": -150.3,
+      "wn1_phi": 325.4,
+      "ellipt": 0.934,
+      "wn1_amp": 4.83,
+      "asym": 4.49,
+      "dh_curl": -3.538e-05,
+      "H_core": 3.026e-05,
+      "H_shell": -5.12e-06,
+      "dh_mode": "collapse",
+      "saddle": null,
+      "advisory_time": null,
+      "wind_kts": 50,
+      "recorded_at": "2026-08-14T21:54:17.241578+00:00"
+    },
+    {
       "storm": "NANGKA",
       "storm_id": "16W",
       "cycle": "2026-08-12T12:00",
