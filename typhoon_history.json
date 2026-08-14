@@ -123,6 +123,25 @@
       "recorded_at": "2026-08-13T22:22:21.525393+00:00"
     },
     {
+      "storm": "LALA",
+      "storm_id": null,
+      "cycle": "2026-08-14T00:00",
+      "center_lat": 15.2,
+      "center_lon": -145.7,
+      "wn1_phi": 7.9,
+      "ellipt": 0.978,
+      "wn1_amp": 5.98,
+      "asym": 8.16,
+      "dh_curl": -4.403e-05,
+      "H_core": 3.541e-05,
+      "H_shell": -8.62e-06,
+      "dh_mode": "collapse",
+      "saddle": null,
+      "advisory_time": null,
+      "wind_kts": 40,
+      "recorded_at": "2026-08-14T05:18:06.894446+00:00"
+    },
+    {
       "storm": "NANGKA",
       "storm_id": "16W",
       "cycle": "2026-08-12T12:00",
@@ -289,6 +308,34 @@
       "advisory_time": "132100",
       "wind_kts": 35,
       "recorded_at": "2026-08-13T22:22:21.344337+00:00"
+    },
+    {
+      "storm": "NANGKA",
+      "storm_id": "16W",
+      "cycle": "2026-08-14T00:00",
+      "center_lat": 28.5,
+      "center_lon": 153.4,
+      "wn1_phi": 78.4,
+      "ellipt": 0.45,
+      "wn1_amp": 11.07,
+      "asym": 51.38,
+      "dh_curl": -2.736e-05,
+      "H_core": 2.661e-05,
+      "H_shell": -7.5e-07,
+      "dh_mode": "organized",
+      "saddle": {
+        "n_saddle": 166,
+        "window_deg": 6.0,
+        "D_obs": 0.89,
+        "D_fill_null": 0.871,
+        "D_circle_null": 0.839,
+        "D_all_points": 1.104,
+        "D_fold": 0.019,
+        "z_vs_circle": 4.67
+      },
+      "advisory_time": "140300",
+      "wind_kts": 30,
+      "recorded_at": "2026-08-14T05:18:06.727070+00:00"
     },
     {
       "storm": "PEILOU",
