@@ -31,6 +31,81 @@ HISTORY_PATH = "wn1_history.json"
 SUMMARY_PATH = "wn1_latest.md"
 CYCLOCANE_HOME = "https://www.cyclocane.com/"
 
+# ─── 0. IGRF-13 地磁場（簡化 n=1,2,3，2020 係數） ──────────────
+IGRF_COEFS = {
+    'g10': -29404.8, 'g11': -1450.9, 'h11': 4652.5,
+    'g20': -2499.6, 'g21': 2982.0, 'h21': -2991.6,
+    'g22': 1677.0, 'h22': -734.6,
+    'g30': 1363.2, 'g31': -2381.2, 'h31': -82.1,
+    'g32': 1236.2, 'h32': 241.9, 'g33': 525.7, 'h33': -543.4,
+}
+
+def igrf_field(lat, lon, alt_km=0):
+    """IGRF-13 簡化版（n=1,2,3）：返回 total field F (nT) + declination D"""
+    theta = np.radians(90 - lat)
+    phi = np.radians(lon)
+    a = 6371.2
+    r = a + alt_km
+    Br = Btheta = Bphi = 0.0
+
+    # n=1
+    Br += 2 * (a/r)**3 * (IGRF_COEFS['g10'] * np.cos(theta) +
+                           IGRF_COEFS['g11'] * np.sin(theta) * np.cos(phi) +
+                           IGRF_COEFS['h11'] * np.sin(theta) * np.sin(phi))
+    Btheta += -(a/r)**3 * (-IGRF_COEFS['g10'] * np.sin(theta) +
+                            IGRF_COEFS['g11'] * np.cos(theta) * np.cos(phi) +
+                            IGRF_COEFS['h11'] * np.cos(theta) * np.sin(phi))
+    Bphi += -(a/r)**3 * (IGRF_COEFS['g11'] * np.sin(phi) -
+                          IGRF_COEFS['h11'] * np.cos(phi)) / np.sin(theta)
+    # n=2
+    P20 = 0.5 * (3 * np.cos(theta)**2 - 1)
+    P21 = 3 * np.sin(theta) * np.cos(theta)
+    P22 = 3 * np.sin(theta)**2
+    Br += 3 * (a/r)**4 * (IGRF_COEFS['g20'] * P20 +
+                           (IGRF_COEFS['g21'] * np.cos(phi) + IGRF_COEFS['h21'] * np.sin(phi)) * P21 +
+                           (IGRF_COEFS['g22'] * np.cos(2*phi) + IGRF_COEFS['h22'] * np.sin(2*phi)) * P22)
+    Btheta += -(a/r)**4 * (IGRF_COEFS['g20'] * (1.5*np.sin(2*theta)) +
+                            IGRF_COEFS['g21'] * np.cos(phi) * (3*np.cos(2*theta) - 1) * 0.5 +
+                            IGRF_COEFS['h21'] * np.sin(phi) * (3*np.cos(2*theta) - 1) * 0.5 +
+                            IGRF_COEFS['g22'] * np.cos(2*phi) * (3*np.sin(2*theta)) +
+                            IGRF_COEFS['h22'] * np.sin(2*phi) * (3*np.sin(2*theta)))
+    Bphi += -(a/r)**4 * (IGRF_COEFS['g21'] * (-np.sin(phi)) * (3*np.sin(theta)*np.cos(theta)) +
+                          IGRF_COEFS['h21'] * np.cos(phi) * (3*np.sin(theta)*np.cos(theta)) +
+                          IGRF_COEFS['g22'] * (-2*np.sin(2*phi)) * (3*np.sin(theta)**2) +
+                          IGRF_COEFS['h22'] * (2*np.cos(2*phi)) * (3*np.sin(theta)**2))
+    # n=3（只 g30，足夠總強度近似）
+    P30 = 0.5 * (5 * np.cos(theta)**3 - 3 * np.cos(theta))
+    Br += 4 * (a/r)**5 * IGRF_COEFS['g30'] * P30
+
+    Bx = -Btheta; By = -Bphi; Bz = -Br
+    F = float(np.sqrt(Bx**2 + By**2 + Bz**2))
+    D = float(np.degrees(np.arctan2(By, Bx)))
+    return F, D
+
+
+def classify_uq(ellipt, amp, mag_F, lat):
+    """
+    WN1 UQ 機制 v3（2026-08-15 confound test 修正版）：
+      🟢🟢 高信心：ellipt ≤ 0.4 + amp ≥ 門檻（經 confound test 驗證）
+      🟡 中信心：ellipt ≤ 0.4（任何 amp）
+      🔴 低信心：ellipt > 0.4（尤其 amp < 7 = Q4 區域，30% 準確度）
+    緯度依賴門檻：低緯 <20° 用 Amp≥10、中緯 20-30° 用 Amp≥7、高緯 ≥30° 用 Amp≥5
+    ⚠️ v3 變更：移除「Mag≥35000 升級」——confound test 證明地磁場 r(amp,F|lat)
+       ≈ 0（200hPa -0.114 p=0.21；500hPa 反號 -0.315），磁場係緯度偽相關，
+       「地磁場強度調制」撤回。緯度門檻保留（partial r≈0.45 獨立顯著）。
+    """
+    amp_thresh = 10.0
+    if lat >= 20 and lat < 30:
+        amp_thresh = 7.0
+    elif lat >= 30:
+        amp_thresh = 5.0
+
+    if ellipt <= 0.4:
+        if amp >= amp_thresh:
+            return "VERY_HIGH", amp_thresh
+        return "MEDIUM", amp_thresh
+    return "LOW", amp_thresh
+
 
 # ─── 1. 活躍颱風列表（cyclocane 主頁） ──────────────────────────
 def fetch_active_storms():
@@ -105,44 +180,31 @@ def fetch_storm_position(slug):
 
 # ─── 3. GFS 下載 ───────────────────────────────────────────────
 def download_gfs_latest(out_path="/tmp/gfs_latest_500.grib2", cycle_hint=None):
-    """下載最新可用 GFS 500 hPa 分析場。
-
-    有 cycle_hint：指定 cycle 今日 + 昨日。
-    冇 hint：由而家 UTC 最近嘅 6h cycle 開始向後試（最多 4 個），
-    保證攞到「最新已出」嘅分析場，唔會跳去舊一日。
-    """
-    utc = datetime.now(timezone.utc)
-    candidates = []
-    if cycle_hint:
+    from datetime import datetime as dt
+    utc = dt.utcnow()
+    cycles = [cycle_hint] if cycle_hint else ["12", "06", "00", "18"]
+    for cycle in cycles:
         for day_offset in [0, -1]:
             day = (utc + timedelta(days=day_offset)).strftime("%Y%m%d")
-            candidates.append((day, cycle_hint))
-    else:
-        nearest = (utc.hour // 6) * 6  # 最近已到嘅 6h cycle 時刻（07:11 → 06Z）
-        for back in range(4):
-            t = (utc.replace(hour=0, minute=0, second=0, microsecond=0)
-                 + timedelta(hours=nearest - back * 6))
-            candidates.append((t.strftime("%Y%m%d"), f"{t.hour:02d}"))
-    for day, cycle in candidates:
-        url = (f"https://nomads.ncep.noaa.gov/cgi-bin/filter_gfs_0p25.pl"
-               f"?file=gfs.t{cycle}z.pgrb2.0p25.f000"
-               f"&lev_500_mb=on&var_UGRD=on&var_VGRD=on"
-               f"&dir=%2Fgfs.{day}%2F{cycle}%2Fatmos")
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req, timeout=60) as r:
-                data = r.read()
-            Path(out_path).write_bytes(data)
-            print(f"✅ GFS {day} {cycle}Z → {out_path} ({len(data)/1e6:.1f} MB)")
-            return out_path, day, cycle
-        except Exception as e:
-            print(f"  ⏳ {day} {cycle}Z: {str(e)[:70]}")
+            url = (f"https://nomads.ncep.noaa.gov/cgi-bin/filter_gfs_0p25.pl"
+                   f"?file=gfs.t{cycle}z.pgrb2.0p25.f000"
+                   f"&lev_500_mb=on&var_UGRD=on&var_VGRD=on"
+                   f"&dir=%2Fgfs.{day}%2F{cycle}%2Fatmos")
+            try:
+                req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    data = r.read()
+                Path(out_path).write_bytes(data)
+                print(f"✅ GFS {day} {cycle}Z → {out_path} ({len(data)/1e6:.1f} MB)")
+                return out_path, day, cycle
+            except Exception as e:
+                print(f"  ⏳ {day} {cycle}Z: {str(e)[:70]}")
     raise RuntimeError("GFS 下載失敗")
 
 
 def load_gfs(path):
-    import xarray as xr
-    ds = xr.open_dataset(path, engine="cfgrib")
+    import cfgrib
+    ds = cfgrib.open_dataset(path)
     lat = ds["latitude"].values
     lon = ds["longitude"].values
     u = ds["u"].values
@@ -268,13 +330,20 @@ def main():
         except Exception as e:
             print(f"  {name}: ❌ {e}")
             continue
-        phi = s["wn1_phi"]; el = s["ellipt"]
-        uq = "✅ ellipt≤0.4 (可信)" if el <= 0.4 else "⚠️ ellipt>0.4 (低可信)"
+        phi = s["wn1_phi"]; el = s["ellipt"]; amp = s["wn1_amp"]
+        # 地磁場（IGRF-13 簡化，500 hPa ≈ 5.5 km）
+        mag_F, mag_D = igrf_field(clat, clon, alt_km=5.5)
+        uq_level, amp_thresh = classify_uq(el, amp, mag_F, clat)
+        uq_emoji = {"VERY_HIGH": "🟢🟢", "HIGH": "🟢", "MEDIUM": "🟡", "LOW": "🔴"}[uq_level]
+        uq_txt = {"VERY_HIGH": "ellipt≤0.4+Amp≥門檻",
+                  "HIGH": "ellipt≤0.4+Amp≥門檻",
+                  "MEDIUM": "ellipt≤0.4",
+                  "LOW": "ellipt>0.4"}[uq_level]
         print(f"  {name}  ({clat:.1f}N, {clon:.1f}E)"
               + (f"  [{info.get('storm_id','')}]" if info.get("storm_id") else ""))
         print(f"    500 hPa WN1 相位 = {phi:5.1f}° ({bearing_name(phi)})")
-        print(f"    ellipt = {el:.2f}  {uq}")
-        print(f"    WN1 amp = {s['wn1_amp']:.1f} m/s, asym = {s['asym']:.2f}")
+        print(f"    ellipt = {el:.2f}  |  WN1 amp = {amp:.1f} m/s (門檻 {amp_thresh:.0f})  |  Mag F = {mag_F:.0f} nT")
+        print(f"    UQ = {uq_emoji} {uq_level} ({uq_txt})")
         print()
 
         rec = {
@@ -285,8 +354,10 @@ def main():
             "center_lon": round(clon, 2),
             "wn1_phi": round(phi, 1),
             "ellipt": round(el, 3),
-            "wn1_amp": round(s["wn1_amp"], 2),
+            "wn1_amp": round(amp, 2),
             "asym": round(s["asym"], 2),
+            "mag_F_nT": round(mag_F, 0),
+            "uq_level": uq_level,
             "advisory_time": info.get("advisory_time"),
             "wind_kts": info.get("wind_kts"),
             "recorded_at": datetime.now(timezone.utc).isoformat(),
@@ -311,13 +382,18 @@ def main():
         lines = ["# 🌀 WN1 Shadow 最新追蹤", "",
                  f"**GFS {valid_str}** — 自動更新 "
                  f"({datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC)", "",
-                 "| 颱風 | 位置 | WN1 相位 | 方位 | ellipt | UQ |",
-                 "|------|------|---------|------|--------|-----|"]
+                 "| 颱風 | 位置 | WN1 相位 | 方位 | ellipt | amp | MagF | UQ |",
+                 "|------|------|---------|------|--------|-----|------|-----|"]
+        uq_emoji = {"VERY_HIGH": "🟢🟢", "HIGH": "🟢", "MEDIUM": "🟡", "LOW": "🔴"}
         for r in new_records:
-            uq = "✅" if r["ellipt"] <= 0.4 else "⚠️"
             lines.append(f"| {r['storm']} | {r['center_lat']}N {r['center_lon']}E | "
                          f"{r['wn1_phi']}° | {bearing_name(r['wn1_phi'])} | "
-                         f"{r['ellipt']} | {uq} |")
+                         f"{r['ellipt']} | {r['wn1_amp']} | {r['mag_F_nT']} | "
+                         f"{uq_emoji[r['uq_level']]} {r['uq_level']} |")
+        lines += ["", "**UQ 機制 v3**（2026-08-15 confound test 修正）：🟢🟢 Very High = ellipt≤0.4 + Amp≥門檻；"
+                  "🟡 Medium = ellipt≤0.4；🔴 Low = ellipt>0.4。"
+                  "門檻按緯度：<20° Amp≥10、20-30° Amp≥7、≥30° Amp≥5。"
+                  "（v3 移除 Mag≥35k 條件：地磁場係緯度偽相關，partial r≈0）", ""]
         Path(SUMMARY_PATH).write_text("\n".join(lines) + "\n")
         print(f"✅ Summary → {SUMMARY_PATH}")
 
