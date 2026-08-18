@@ -805,6 +805,37 @@
       "advisory_time": null,
       "wind_kts": 35,
       "recorded_at": "2026-08-13T10:41:20.041466+00:00"
+    },
+    {
+      "storm": "SEVENTEEN",
+      "storm_id": "17W",
+      "cycle": "2026-08-18T12:00",
+      "center_lat": 7.9,
+      "center_lon": 154.9,
+      "wn1_phi": 265.1,
+      "ellipt": 1.042,
+      "wn1_amp": 6.12,
+      "asym": 12.27,
+      "mag_F_nT": 39959.0,
+      "uq_level": "LOW",
+      "amp_thresh": 10.0,
+      "dh_curl": -2.211e-05,
+      "H_core": 2.631e-05,
+      "H_shell": 4.19e-06,
+      "dh_mode": "organized",
+      "saddle": {
+        "n_saddle": 184,
+        "window_deg": 6.0,
+        "D_obs": 0.914,
+        "D_fill_null": 0.903,
+        "D_circle_null": 0.862,
+        "D_all_points": 1.098,
+        "D_fold": 0.011,
+        "z_vs_circle": 5.51
+      },
+      "advisory_time": "181500",
+      "wind_kts": 25,
+      "recorded_at": "2026-08-18T16:01:26.557069+00:00"
     }
   ]
 }
