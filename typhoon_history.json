@@ -85,6 +85,28 @@
       "recorded_at": "2026-08-11T16:29:26.389795+00:00"
     },
     {
+      "storm": "HURRICANE LALA",
+      "storm_id": null,
+      "cycle": "2026-08-18T18:00",
+      "center_lat": 20.3,
+      "center_lon": -167.7,
+      "wn1_phi": 246.7,
+      "ellipt": 0.067,
+      "wn1_amp": 4.91,
+      "asym": 14.86,
+      "mag_F_nT": 35400.0,
+      "uq_level": "MEDIUM",
+      "amp_thresh": 7.0,
+      "dh_curl": -2.558e-05,
+      "H_core": 2.241e-05,
+      "H_shell": -3.16e-06,
+      "dh_mode": "organized",
+      "saddle": null,
+      "advisory_time": null,
+      "wind_kts": 85,
+      "recorded_at": "2026-08-18T21:53:14.273642+00:00"
+    },
+    {
       "storm": "LALA",
       "storm_id": null,
       "cycle": "2026-08-13T12:00",
@@ -836,6 +858,37 @@
       "advisory_time": "181500",
       "wind_kts": 25,
       "recorded_at": "2026-08-18T16:01:26.557069+00:00"
+    },
+    {
+      "storm": "SEVENTEEN",
+      "storm_id": "17W",
+      "cycle": "2026-08-18T18:00",
+      "center_lat": 8.3,
+      "center_lon": 154.6,
+      "wn1_phi": 282.8,
+      "ellipt": 0.882,
+      "wn1_amp": 5.51,
+      "asym": 16.02,
+      "mag_F_nT": 39776.0,
+      "uq_level": "LOW",
+      "amp_thresh": 10.0,
+      "dh_curl": -2.424e-05,
+      "H_core": 2.777e-05,
+      "H_shell": 3.52e-06,
+      "dh_mode": "organized",
+      "saddle": {
+        "n_saddle": 190,
+        "window_deg": 6.0,
+        "D_obs": 0.923,
+        "D_fill_null": 0.908,
+        "D_circle_null": 0.868,
+        "D_all_points": 1.096,
+        "D_fold": 0.014,
+        "z_vs_circle": 5.43
+      },
+      "advisory_time": "182100",
+      "wind_kts": 25,
+      "recorded_at": "2026-08-18T21:53:14.087948+00:00"
     }
   ]
 }
