@@ -116,6 +116,37 @@
       "recorded_at": "2026-08-20T21:57:16.267402+00:00"
     },
     {
+      "storm": "EIGHTEEN",
+      "storm_id": "18W",
+      "cycle": "2026-08-21T00:00",
+      "center_lat": 20.2,
+      "center_lon": 108.6,
+      "wn1_phi": 340.5,
+      "ellipt": 2.19,
+      "wn1_amp": 2.84,
+      "asym": 5.03,
+      "mag_F_nT": 43184.0,
+      "uq_level": "LOW",
+      "amp_thresh": 7.0,
+      "dh_curl": -1.82e-05,
+      "H_core": 2.402e-05,
+      "H_shell": 5.82e-06,
+      "dh_mode": "organized",
+      "saddle": {
+        "n_saddle": 185,
+        "window_deg": 6.0,
+        "D_obs": 0.919,
+        "D_fill_null": 0.903,
+        "D_circle_null": 0.863,
+        "D_all_points": 1.096,
+        "D_fold": 0.015,
+        "z_vs_circle": 6.4
+      },
+      "advisory_time": "210300",
+      "wind_kts": 30,
+      "recorded_at": "2026-08-21T04:19:44.925086+00:00"
+    },
+    {
       "storm": "HURRICANE LALA",
       "storm_id": null,
       "cycle": "2026-08-18T18:00",
@@ -268,6 +299,28 @@
       "advisory_time": null,
       "wind_kts": 85,
       "recorded_at": "2026-08-20T21:57:16.813645+00:00"
+    },
+    {
+      "storm": "HURRICANE LALA",
+      "storm_id": null,
+      "cycle": "2026-08-21T00:00",
+      "center_lat": 25.2,
+      "center_lon": -172.4,
+      "wn1_phi": 64.3,
+      "ellipt": 0.607,
+      "wn1_amp": 6.75,
+      "asym": 10.3,
+      "mag_F_nT": 38522.0,
+      "uq_level": "LOW",
+      "amp_thresh": 7.0,
+      "dh_curl": -3.034e-05,
+      "H_core": 2.33e-05,
+      "H_shell": -7.05e-06,
+      "dh_mode": "collapse",
+      "saddle": null,
+      "advisory_time": null,
+      "wind_kts": 80,
+      "recorded_at": "2026-08-21T04:19:45.238612+00:00"
     },
     {
       "storm": "LALA",
@@ -1178,6 +1231,37 @@
       "recorded_at": "2026-08-20T21:57:16.458053+00:00"
     },
     {
+      "storm": "SAUDEL",
+      "storm_id": "17W",
+      "cycle": "2026-08-21T00:00",
+      "center_lat": 14.7,
+      "center_lon": 149.0,
+      "wn1_phi": 305.6,
+      "ellipt": 0.478,
+      "wn1_amp": 5.48,
+      "asym": 2.64,
+      "mag_F_nT": 38564.0,
+      "uq_level": "LOW",
+      "amp_thresh": 10.0,
+      "dh_curl": -3.456e-05,
+      "H_core": 3.299e-05,
+      "H_shell": -1.57e-06,
+      "dh_mode": "collapse",
+      "saddle": {
+        "n_saddle": 192,
+        "window_deg": 6.0,
+        "D_obs": 0.925,
+        "D_fill_null": 0.919,
+        "D_circle_null": 0.87,
+        "D_all_points": 1.099,
+        "D_fold": 0.006,
+        "z_vs_circle": 5.57
+      },
+      "advisory_time": "210300",
+      "wind_kts": 45,
+      "recorded_at": "2026-08-21T04:19:44.758486+00:00"
+    },
+    {
       "storm": "SEVENTEEN",
       "storm_id": "17W",
       "cycle": "2026-08-18T12:00",
@@ -1291,6 +1375,28 @@
       "advisory_time": null,
       "wind_kts": 30,
       "recorded_at": "2026-08-20T21:57:16.636403+00:00"
+    },
+    {
+      "storm": "TWO-C",
+      "storm_id": null,
+      "cycle": "2026-08-21T00:00",
+      "center_lat": 12.8,
+      "center_lon": -144.6,
+      "wn1_phi": 328.7,
+      "ellipt": 3.08,
+      "wn1_amp": 1.59,
+      "asym": 1.23,
+      "mag_F_nT": 32667.0,
+      "uq_level": "LOW",
+      "amp_thresh": 10.0,
+      "dh_curl": -1.959e-05,
+      "H_core": 2.123e-05,
+      "H_shell": 1.65e-06,
+      "dh_mode": "organized",
+      "saddle": null,
+      "advisory_time": null,
+      "wind_kts": 30,
+      "recorded_at": "2026-08-21T04:19:45.082999+00:00"
     }
   ]
 }
