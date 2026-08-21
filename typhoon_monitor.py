@@ -101,25 +101,37 @@ def igrf_field(lat, lon, alt_km=0):
 
 def classify_uq(ellipt, amp, mag_F, lat):
     """
-    WN1 UQ 機制 v3（2026-08-15 confound test 修正版）：
-      🟢🟢 高信心：ellipt ≤ 0.4 + amp ≥ 門檻（經 confound test 驗證）
-      🟡 中信心：ellipt ≤ 0.4（任何 amp）
-      🔴 低信心：ellipt > 0.4（尤其 amp < 7 = Q4 區域，30% 準確度）
-    緯度依賴門檻：低緯 <20° 用 Amp≥10、中緯 20-30° 用 Amp≥7、高緯 ≥30° 用 Amp≥5
-    ⚠️ v3 變更：移除「Mag≥35000 升級」——confound test 證明地磁場 r(amp,F|lat)
-       ≈ 0（200hPa -0.114 p=0.21；500hPa 反號 -0.315），磁場係緯度偽相關，
-       「地磁場強度調制」撤回。緯度門檻保留（partial r≈0.45 獨立顯著）。
+    WN1 UQ 機制 v4（2026-08-21 backtest 修正版）：
+      🟢🟢 高信心：ellipt ≤ 0.4 + amp ≥ 緯度門檻
+      🟡 中信心：ellipt ≤ 0.6 + amp ≥ 7（v4 新增：backtest 證明 0.4-0.6 組 mean 11.1°）
+      🔴 低信心：其他（ellipt > 0.6 或 amp < 7）
+    
+    v4 修正理由（backtest n=35, 10 颱風）：
+      - 0.4-0.6 組 mean 11.1°、100% <45°（反而好過 ≤0.4 組 mean 34.8°）
+      - NANGKA/SAUDEL 證明高 Amp 可以補償 ellipt 略高
+      - 舊門檻 0.4 過嚴，會錯誤標記可靠樣本為 🔴 LOW
+      - Amp≥7 係最強 UQ 指標（Live 95% <45° vs 回溯 94%，跨數據源一致）
+    
+    v3 歷史：移除「Mag≥35000 升級」（地磁場係緯度偽相關）
+    緯度依賴門檻（VERY_HIGH 用）：低緯 <20°→10、中緯 20-30°→7、高緯 ≥30°→5
     """
+    # 緯度依賴門檻（用于 VERY_HIGH）
     amp_thresh = 10.0
     if lat >= 20 and lat < 30:
         amp_thresh = 7.0
     elif lat >= 30:
         amp_thresh = 5.0
 
-    if ellipt <= 0.4:
-        if amp >= amp_thresh:
-            return "VERY_HIGH", amp_thresh
+    # VERY_HIGH: 圓形結構 + 緯度依賴 Amp 門檻
+    if ellipt <= 0.4 and amp >= amp_thresh:
+        return "VERY_HIGH", amp_thresh
+    
+    # MEDIUM (v4 新增): 中度橢圓 + 高 Amp（backtest 證明可靠）
+    if ellipt <= 0.6 and amp >= 7.0:
         return "MEDIUM", amp_thresh
+    
+    # 舊版 MEDIUM（ellipt≤0.4 但 Amp 唔夠緯度門檻）降為 LOW
+    # 因為 backtest 顯示 ellipt≤0.4 + 低 Amp 表現差（mean 34.8°）
     return "LOW", amp_thresh
 
 

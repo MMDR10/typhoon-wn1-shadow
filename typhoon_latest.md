@@ -9,5 +9,5 @@
 | TWO-C | 11.7N -142.6E | 335.6° | 1.0 | 🔴 LOW | -1.90e-05 | organized | — | — |
 | HURRICANE LALA | 23.8N -172.0E | 47.7° | 0.505 | 🔴 LOW | -2.99e-05 | organized | — | — |
 
-**UQ 機制 v3**（2026-08-15 confound test 修正）：🟢🟢 Very High = ellipt≤0.4 + Amp≥門檻（<20°→10 / 20-30°→7 / ≥30°→5）；🟡 Medium = ellipt≤0.4；🔴 Low = ellipt>0.4。（v3 移除 Mag≥35k 條件：地磁場係緯度偽相關，partial r≈0）
+**UQ 機制 v4**（2026-08-21 backtest 修正）：🟢🟢 Very High = ellipt≤0.4 + Amp≥緯度門檻（<20°→10 / 20-30°→7 / ≥30°→5）；🟡 Medium = ellipt≤0.6 + Amp≥7（v4 新增：backtest 證明 0.4-0.6 組 mean 11.1°、100% <45°）；🔴 Low = 其他。Amp≥7 係最強 UQ 指標（Live 95% <45° vs 回溯 94%）。
 
