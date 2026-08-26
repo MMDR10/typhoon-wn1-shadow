@@ -3476,6 +3476,37 @@
       "recorded_at": "2026-08-25T21:56:30.461669+00:00"
     },
     {
+      "storm": "SAUDEL",
+      "storm_id": "17W",
+      "cycle": "2026-08-26T00:00",
+      "center_lat": 27.8,
+      "center_lon": 127.3,
+      "wn1_phi": 326.3,
+      "ellipt": 0.12,
+      "wn1_amp": 5.92,
+      "asym": 10.86,
+      "mag_F_nT": 47221.0,
+      "uq_level": "LOW",
+      "amp_thresh": 7.0,
+      "dh_curl": -5.014e-05,
+      "H_core": 3.89e-05,
+      "H_shell": -1.123e-05,
+      "dh_mode": "collapse",
+      "saddle": {
+        "n_saddle": 198,
+        "window_deg": 6.0,
+        "D_obs": 0.933,
+        "D_fill_null": 0.925,
+        "D_circle_null": 0.875,
+        "D_all_points": 1.098,
+        "D_fold": 0.009,
+        "z_vs_circle": 4.95
+      },
+      "advisory_time": "260300",
+      "wind_kts": 75,
+      "recorded_at": "2026-08-26T04:20:28.125998+00:00"
+    },
+    {
       "storm": "SEVENTEEN",
       "storm_id": "17W",
       "cycle": "2026-08-18T12:00",
