@@ -10,7 +10,7 @@ claim_gate.py — 提升宣稱嘅 deterministic 守門員（8/27 MKP 事件驅�
   G5 sign_or_bias_claim   : 「偏置存在」要 Rayleigh p<0.05；「校後提升」要 prequential eval n>0
 輸出：PASS / FAIL + 逐條 reasons。任何一條 FAIL → 成個宣稱唔准入報告。
 """
-import json, os, sys
+import json, os, re, sys
 from datetime import datetime
 
 def gate(claim):
@@ -35,7 +35,12 @@ def gate(claim):
         try:
             evd = json.load(open(ev))
             blob = json.dumps(evd)
-            r['G4_metric_consistency'] = claim['statistic'] in blob
+            if claim['statistic'] == 'median':
+                r['G4_metric_consistency'] = bool(re.search(r'_med\b|median', blob))
+            elif claim['statistic'] == 'mean':
+                r['G4_metric_consistency'] = bool(re.search(r'_mean\b|mean', blob))
+            else:
+                r['G4_metric_consistency'] = False
         except Exception:
             r['G4_metric_consistency'] = False
     else:
