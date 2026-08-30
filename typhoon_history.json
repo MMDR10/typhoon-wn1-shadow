@@ -891,6 +891,37 @@
       "recorded_at": "2026-08-30T14:30:53.364974+00:00"
     },
     {
+      "storm": "ETAU",
+      "storm_id": "21W",
+      "cycle": "2026-08-30T12:00",
+      "center_lat": 31.1,
+      "center_lon": 166.0,
+      "wn1_phi": 82.9,
+      "ellipt": 0.714,
+      "wn1_amp": 5.35,
+      "asym": 8.52,
+      "mag_F_nT": 44777.0,
+      "uq_level": "LOW",
+      "amp_thresh": 5.0,
+      "dh_curl": -5.174e-05,
+      "H_core": 4.666e-05,
+      "H_shell": -5.08e-06,
+      "dh_mode": "collapse",
+      "saddle": {
+        "n_saddle": 200,
+        "window_deg": 6.0,
+        "D_obs": 0.939,
+        "D_fill_null": 0.926,
+        "D_circle_null": 0.878,
+        "D_all_points": 1.104,
+        "D_fold": 0.012,
+        "z_vs_circle": 5.19
+      },
+      "advisory_time": "301500",
+      "wind_kts": 30,
+      "recorded_at": "2026-08-30T18:47:31.331967+00:00"
+    },
+    {
       "storm": "HURRICANE LALA",
       "storm_id": null,
       "cycle": "2026-08-18T18:00",
