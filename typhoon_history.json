@@ -1,6 +1,37 @@
 {
   "records": [
     {
+      "storm": "94W",
+      "storm_id": null,
+      "cycle": "2026-08-31T12:00",
+      "center_lat": 22.3,
+      "center_lon": 132.9,
+      "wn1_phi": 284.2,
+      "ellipt": 0.869,
+      "wn1_amp": 8.6,
+      "asym": 9.53,
+      "mag_F_nT": 42516.0,
+      "uq_level": "LOW",
+      "amp_thresh": 7.0,
+      "dh_curl": -4.619e-05,
+      "H_core": 4.475e-05,
+      "H_shell": -1.44e-06,
+      "dh_mode": "collapse",
+      "saddle": {
+        "n_saddle": 180,
+        "window_deg": 6.0,
+        "D_obs": 0.904,
+        "D_fill_null": 0.9,
+        "D_circle_null": 0.856,
+        "D_all_points": 1.096,
+        "D_fold": 0.004,
+        "z_vs_circle": 4.78
+      },
+      "advisory_time": null,
+      "wind_kts": null,
+      "recorded_at": "2026-08-31T15:34:02.123756+00:00"
+    },
+    {
       "storm": "ATSANI",
       "storm_id": "19W",
       "cycle": "2026-08-24T00:00",
