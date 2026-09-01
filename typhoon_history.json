@@ -3218,6 +3218,37 @@
       "recorded_at": "2026-08-13T16:29:40.036134+00:00"
     },
     {
+      "storm": "PILANDOK",
+      "storm_id": null,
+      "cycle": "2026-08-31T18:00",
+      "center_lat": 22.1,
+      "center_lon": 131.4,
+      "wn1_phi": 275.3,
+      "ellipt": 1.217,
+      "wn1_amp": 6.46,
+      "asym": 8.91,
+      "mag_F_nT": 42540.0,
+      "uq_level": "LOW",
+      "amp_thresh": 7.0,
+      "dh_curl": -4.462e-05,
+      "H_core": 4.454e-05,
+      "H_shell": -8e-08,
+      "dh_mode": "collapse",
+      "saddle": {
+        "n_saddle": 187,
+        "window_deg": 6.0,
+        "D_obs": 0.919,
+        "D_fill_null": 0.909,
+        "D_circle_null": 0.865,
+        "D_all_points": 1.098,
+        "D_fold": 0.01,
+        "z_vs_circle": 5.4
+      },
+      "advisory_time": null,
+      "wind_kts": null,
+      "recorded_at": "2026-09-01T03:13:03.862444+00:00"
+    },
+    {
       "storm": "POTENTIAL TROPICAL CYCLONE ONE",
       "storm_id": null,
       "cycle": "2026-08-12T12:00",
