@@ -29,7 +29,14 @@
       },
       "advisory_time": null,
       "wind_kts": null,
-      "recorded_at": "2026-08-31T15:34:02.123756+00:00"
+      "recorded_at": "2026-08-31T15:34:02.123756+00:00",
+      "steer_spd": 2.93,
+      "steer_dir": 16.0,
+      "near_spd": 2.64,
+      "near_dir": 290.3,
+      "far_spd": 3.96,
+      "far_dir": 42.5,
+      "wn1_steer_sep": -91.8
     },
     {
       "storm": "94W",
@@ -60,7 +67,14 @@
       },
       "advisory_time": null,
       "wind_kts": null,
-      "recorded_at": "2026-08-31T22:36:40.047811+00:00"
+      "recorded_at": "2026-08-31T22:36:40.047811+00:00",
+      "steer_spd": 3.41,
+      "steer_dir": 21.4,
+      "near_spd": 2.85,
+      "near_dir": 286.7,
+      "far_spd": 4.34,
+      "far_dir": 47.9,
+      "wn1_steer_sep": -98.4
     },
     {
       "storm": "ATSANI",
@@ -91,7 +105,14 @@
       },
       "advisory_time": "240300",
       "wind_kts": 30,
-      "recorded_at": "2026-08-24T04:25:10.764251+00:00"
+      "recorded_at": "2026-08-24T04:25:10.764251+00:00",
+      "steer_spd": 3.43,
+      "steer_dir": 273.2,
+      "near_spd": 4.41,
+      "near_dir": 12.6,
+      "far_spd": 2.82,
+      "far_dir": 246.1,
+      "wn1_steer_sep": 77.2
     },
     {
       "storm": "ATSANI",
@@ -122,7 +143,14 @@
       },
       "advisory_time": "240900",
       "wind_kts": 30,
-      "recorded_at": "2026-08-24T10:20:16.032635+00:00"
+      "recorded_at": "2026-08-24T10:20:16.032635+00:00",
+      "steer_spd": 2.2,
+      "steer_dir": 256.4,
+      "near_spd": 5.7,
+      "near_dir": 1.0,
+      "far_spd": 2.86,
+      "far_dir": 222.5,
+      "wn1_steer_sep": 91.8
     },
     {
       "storm": "ATSANI",
@@ -153,7 +181,14 @@
       },
       "advisory_time": "241500",
       "wind_kts": 30,
-      "recorded_at": "2026-08-24T16:06:49.329086+00:00"
+      "recorded_at": "2026-08-24T16:06:49.329086+00:00",
+      "steer_spd": 2.5,
+      "steer_dir": 250.7,
+      "near_spd": 5.23,
+      "near_dir": 348.8,
+      "far_spd": 3.23,
+      "far_dir": 229.9,
+      "wn1_steer_sep": 85.6
     },
     {
       "storm": "ATSANI",
@@ -184,7 +219,14 @@
       },
       "advisory_time": "242100",
       "wind_kts": 30,
-      "recorded_at": "2026-08-24T21:57:32.488012+00:00"
+      "recorded_at": "2026-08-24T21:57:32.488012+00:00",
+      "steer_spd": 1.12,
+      "steer_dir": 247.3,
+      "near_spd": 5.84,
+      "near_dir": 339.4,
+      "far_spd": 1.87,
+      "far_dir": 198.3,
+      "wn1_steer_sep": 79.8
     },
     {
       "storm": "ATSANI",
@@ -215,7 +257,14 @@
       },
       "advisory_time": "250300",
       "wind_kts": 30,
-      "recorded_at": "2026-08-25T04:19:48.214305+00:00"
+      "recorded_at": "2026-08-25T04:19:48.214305+00:00",
+      "steer_spd": 0.47,
+      "steer_dir": 283.6,
+      "near_spd": 6.94,
+      "near_dir": 320.7,
+      "far_spd": 2.29,
+      "far_dir": 202.7,
+      "wn1_steer_sep": 30.9
     },
     {
       "storm": "BANG-LANG",
@@ -246,7 +295,14 @@
       },
       "advisory_time": "281500",
       "wind_kts": 65,
-      "recorded_at": "2026-08-28T15:38:17.735298+00:00"
+      "recorded_at": "2026-08-28T15:38:17.735298+00:00",
+      "steer_spd": 1.02,
+      "steer_dir": 282.8,
+      "near_spd": 4.75,
+      "near_dir": 68.1,
+      "far_spd": 2.52,
+      "far_dir": 266.8,
+      "wn1_steer_sep": 139.7
     },
     {
       "storm": "BANG-LANG",
@@ -277,7 +333,14 @@
       },
       "advisory_time": "282100",
       "wind_kts": 65,
-      "recorded_at": "2026-08-29T00:06:10.448324+00:00"
+      "recorded_at": "2026-08-29T00:06:10.448324+00:00",
+      "steer_spd": 1.28,
+      "steer_dir": 324.3,
+      "near_spd": 6.01,
+      "near_dir": 54.7,
+      "far_spd": 1.31,
+      "far_dir": 254.3,
+      "wn1_steer_sep": 84.2
     },
     {
       "storm": "BANG-LANG",
@@ -308,7 +371,14 @@
       },
       "advisory_time": "290900",
       "wind_kts": 75,
-      "recorded_at": "2026-08-29T10:24:38.542725+00:00"
+      "recorded_at": "2026-08-29T10:24:38.542725+00:00",
+      "steer_spd": 0.64,
+      "steer_dir": 357.2,
+      "near_spd": 8.5,
+      "near_dir": 45.5,
+      "far_spd": 0.72,
+      "far_dir": 153.5,
+      "wn1_steer_sep": 63.7
     },
     {
       "storm": "BANG-LANG",
@@ -339,7 +409,14 @@
       },
       "advisory_time": "291500",
       "wind_kts": 75,
-      "recorded_at": "2026-08-29T18:49:09.675464+00:00"
+      "recorded_at": "2026-08-29T18:49:09.675464+00:00",
+      "steer_spd": 0.61,
+      "steer_dir": 351.0,
+      "near_spd": 7.65,
+      "near_dir": 37.4,
+      "far_spd": 0.37,
+      "far_dir": 75.4,
+      "wn1_steer_sep": 66.4
     },
     {
       "storm": "BANG-LANG",
@@ -370,7 +447,14 @@
       },
       "advisory_time": "292100",
       "wind_kts": 65,
-      "recorded_at": "2026-08-29T23:34:44.571332+00:00"
+      "recorded_at": "2026-08-29T23:34:44.571332+00:00",
+      "steer_spd": 1.77,
+      "steer_dir": 75.2,
+      "near_spd": 7.75,
+      "near_dir": 32.9,
+      "far_spd": 1.05,
+      "far_dir": 20.5,
+      "wn1_steer_sep": -43.4
     },
     {
       "storm": "BANG-LANG",
@@ -401,7 +485,14 @@
       },
       "advisory_time": "300900",
       "wind_kts": 45,
-      "recorded_at": "2026-08-30T09:27:09.414259+00:00"
+      "recorded_at": "2026-08-30T09:27:09.414259+00:00",
+      "steer_spd": 5.38,
+      "steer_dir": 48.1,
+      "near_spd": 6.14,
+      "near_dir": 18.4,
+      "far_spd": 5.79,
+      "far_dir": 28.6,
+      "wn1_steer_sep": -68.0
     },
     {
       "storm": "CHAN-HOM",
@@ -702,7 +793,14 @@
       },
       "advisory_time": "271500",
       "wind_kts": 40,
-      "recorded_at": "2026-08-27T14:35:40.459890+00:00"
+      "recorded_at": "2026-08-27T14:35:40.459890+00:00",
+      "steer_spd": 0.74,
+      "steer_dir": 68.2,
+      "near_spd": 4.28,
+      "near_dir": 42.2,
+      "far_spd": 1.39,
+      "far_dir": 218.4,
+      "wn1_steer_sep": -76.9
     },
     {
       "storm": "ETAU",
@@ -733,7 +831,14 @@
       },
       "advisory_time": "272100",
       "wind_kts": 45,
-      "recorded_at": "2026-08-28T00:34:58.447962+00:00"
+      "recorded_at": "2026-08-28T00:34:58.447962+00:00",
+      "steer_spd": 1.06,
+      "steer_dir": 51.7,
+      "near_spd": 4.13,
+      "near_dir": 16.0,
+      "far_spd": 1.49,
+      "far_dir": 173.0,
+      "wn1_steer_sep": 39.0
     },
     {
       "storm": "ETAU",
@@ -764,7 +869,14 @@
       },
       "advisory_time": "281500",
       "wind_kts": 45,
-      "recorded_at": "2026-08-28T15:38:17.536820+00:00"
+      "recorded_at": "2026-08-28T15:38:17.536820+00:00",
+      "steer_spd": 1.08,
+      "steer_dir": 341.3,
+      "near_spd": 2.65,
+      "near_dir": 14.3,
+      "far_spd": 1.01,
+      "far_dir": 118.1,
+      "wn1_steer_sep": 112.8
     },
     {
       "storm": "ETAU",
@@ -795,7 +907,14 @@
       },
       "advisory_time": "282100",
       "wind_kts": 45,
-      "recorded_at": "2026-08-29T00:06:10.646628+00:00"
+      "recorded_at": "2026-08-29T00:06:10.646628+00:00",
+      "steer_spd": 1.31,
+      "steer_dir": 9.0,
+      "near_spd": 3.69,
+      "near_dir": 7.4,
+      "far_spd": 2.1,
+      "far_dir": 84.9,
+      "wn1_steer_sep": 37.2
     },
     {
       "storm": "ETAU",
@@ -826,7 +945,14 @@
       },
       "advisory_time": "290900",
       "wind_kts": 40,
-      "recorded_at": "2026-08-29T10:24:38.686423+00:00"
+      "recorded_at": "2026-08-29T10:24:38.686423+00:00",
+      "steer_spd": 2.96,
+      "steer_dir": 37.2,
+      "near_spd": 3.76,
+      "near_dir": 34.9,
+      "far_spd": 3.04,
+      "far_dir": 67.8,
+      "wn1_steer_sep": 21.8
     },
     {
       "storm": "ETAU",
@@ -857,7 +983,14 @@
       },
       "advisory_time": "291500",
       "wind_kts": 40,
-      "recorded_at": "2026-08-29T18:49:09.864919+00:00"
+      "recorded_at": "2026-08-29T18:49:09.864919+00:00",
+      "steer_spd": 4.79,
+      "steer_dir": 45.8,
+      "near_spd": 1.58,
+      "near_dir": 5.7,
+      "far_spd": 3.51,
+      "far_dir": 56.3,
+      "wn1_steer_sep": -29.2
     },
     {
       "storm": "ETAU",
@@ -888,7 +1021,14 @@
       },
       "advisory_time": "292100",
       "wind_kts": 35,
-      "recorded_at": "2026-08-29T23:34:44.762420+00:00"
+      "recorded_at": "2026-08-29T23:34:44.762420+00:00",
+      "steer_spd": 4.88,
+      "steer_dir": 56.7,
+      "near_spd": 1.9,
+      "near_dir": 40.8,
+      "far_spd": 3.68,
+      "far_dir": 53.2,
+      "wn1_steer_sep": -32.1
     },
     {
       "storm": "ETAU",
@@ -919,7 +1059,14 @@
       },
       "advisory_time": "300900",
       "wind_kts": 30,
-      "recorded_at": "2026-08-30T09:27:09.555456+00:00"
+      "recorded_at": "2026-08-30T09:27:09.555456+00:00",
+      "steer_spd": 5.1,
+      "steer_dir": 56.7,
+      "near_spd": 3.43,
+      "near_dir": 50.9,
+      "far_spd": 4.09,
+      "far_dir": 28.7,
+      "wn1_steer_sep": -25.2
     },
     {
       "storm": "ETAU",
@@ -950,7 +1097,14 @@
       },
       "advisory_time": "301500",
       "wind_kts": 30,
-      "recorded_at": "2026-08-30T14:30:53.364974+00:00"
+      "recorded_at": "2026-08-30T14:30:53.364974+00:00",
+      "steer_spd": 5.27,
+      "steer_dir": 82.4,
+      "near_spd": 4.73,
+      "near_dir": 60.5,
+      "far_spd": 4.37,
+      "far_dir": 34.5,
+      "wn1_steer_sep": -18.9
     },
     {
       "storm": "ETAU",
@@ -981,7 +1135,14 @@
       },
       "advisory_time": "301500",
       "wind_kts": 30,
-      "recorded_at": "2026-08-30T18:47:31.331967+00:00"
+      "recorded_at": "2026-08-30T18:47:31.331967+00:00",
+      "steer_spd": 4.04,
+      "steer_dir": 71.8,
+      "near_spd": 3.93,
+      "near_dir": 63.1,
+      "far_spd": 4.09,
+      "far_dir": 36.2,
+      "wn1_steer_sep": 11.1
     },
     {
       "storm": "HURRICANE LALA",
@@ -1333,7 +1494,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 65,
-      "recorded_at": "2026-08-23T04:19:30.699976+00:00"
+      "recorded_at": "2026-08-23T04:19:30.699976+00:00",
+      "steer_spd": 2.29,
+      "steer_dir": 79.2,
+      "near_spd": 1.68,
+      "near_dir": 13.1,
+      "far_spd": 1.73,
+      "far_dir": 139.5,
+      "wn1_steer_sep": -80.7
     },
     {
       "storm": "HURRICANE LALA",
@@ -1355,7 +1523,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 65,
-      "recorded_at": "2026-08-23T09:55:26.533321+00:00"
+      "recorded_at": "2026-08-23T09:55:26.533321+00:00",
+      "steer_spd": 2.32,
+      "steer_dir": 85.8,
+      "near_spd": 2.02,
+      "near_dir": 6.2,
+      "far_spd": 1.92,
+      "far_dir": 146.1,
+      "wn1_steer_sep": -52.6
     },
     {
       "storm": "LALA",
@@ -1491,7 +1666,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 55,
-      "recorded_at": "2026-08-23T15:53:32.581392+00:00"
+      "recorded_at": "2026-08-23T15:53:32.581392+00:00",
+      "steer_spd": 2.87,
+      "steer_dir": 65.2,
+      "near_spd": 1.73,
+      "near_dir": 35.8,
+      "far_spd": 1.83,
+      "far_dir": 104.5,
+      "wn1_steer_sep": -13.5
     },
     {
       "storm": "LALA",
@@ -1513,7 +1695,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 55,
-      "recorded_at": "2026-08-23T21:51:55.814822+00:00"
+      "recorded_at": "2026-08-23T21:51:55.814822+00:00",
+      "steer_spd": 3.01,
+      "steer_dir": 69.9,
+      "near_spd": 0.93,
+      "near_dir": 123.8,
+      "far_spd": 2.07,
+      "far_dir": 89.9,
+      "wn1_steer_sep": 108.8
     },
     {
       "storm": "LALA",
@@ -1535,7 +1724,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 55,
-      "recorded_at": "2026-08-24T04:25:11.145747+00:00"
+      "recorded_at": "2026-08-24T04:25:11.145747+00:00",
+      "steer_spd": 3.64,
+      "steer_dir": 58.9,
+      "near_spd": 0.79,
+      "near_dir": 12.5,
+      "far_spd": 2.99,
+      "far_dir": 69.8,
+      "wn1_steer_sep": -173.4
     },
     {
       "storm": "LALA",
@@ -1557,7 +1753,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 55,
-      "recorded_at": "2026-08-24T10:20:16.398864+00:00"
+      "recorded_at": "2026-08-24T10:20:16.398864+00:00",
+      "steer_spd": 3.4,
+      "steer_dir": 65.6,
+      "near_spd": 1.34,
+      "near_dir": 88.5,
+      "far_spd": 3.11,
+      "far_dir": 80.9,
+      "wn1_steer_sep": 90.0
     },
     {
       "storm": "LALA",
@@ -1579,7 +1782,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 55,
-      "recorded_at": "2026-08-24T16:06:49.654235+00:00"
+      "recorded_at": "2026-08-24T16:06:49.654235+00:00",
+      "steer_spd": 3.87,
+      "steer_dir": 66.4,
+      "near_spd": 0.73,
+      "near_dir": 117.1,
+      "far_spd": 3.28,
+      "far_dir": 77.5,
+      "wn1_steer_sep": 106.8
     },
     {
       "storm": "LALA",
@@ -1601,7 +1811,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 55,
-      "recorded_at": "2026-08-24T21:57:32.862881+00:00"
+      "recorded_at": "2026-08-24T21:57:32.862881+00:00",
+      "steer_spd": 3.17,
+      "steer_dir": 82.2,
+      "near_spd": 0.59,
+      "near_dir": 142.7,
+      "far_spd": 3.05,
+      "far_dir": 90.5,
+      "wn1_steer_sep": 58.8
     },
     {
       "storm": "LALA",
@@ -1623,7 +1840,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 50,
-      "recorded_at": "2026-08-25T04:19:48.567866+00:00"
+      "recorded_at": "2026-08-25T04:19:48.567866+00:00",
+      "steer_spd": 3.31,
+      "steer_dir": 64.7,
+      "near_spd": 0.75,
+      "near_dir": 36.2,
+      "far_spd": 3.12,
+      "far_dir": 79.9,
+      "wn1_steer_sep": -83.1
     },
     {
       "storm": "LALA",
@@ -1645,7 +1869,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 50,
-      "recorded_at": "2026-08-25T10:04:04.892695+00:00"
+      "recorded_at": "2026-08-25T10:04:04.892695+00:00",
+      "steer_spd": 2.9,
+      "steer_dir": 71.2,
+      "near_spd": 0.73,
+      "near_dir": 89.9,
+      "far_spd": 2.95,
+      "far_dir": 80.1,
+      "wn1_steer_sep": -6.4
     },
     {
       "storm": "LALA",
@@ -1667,7 +1898,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 45,
-      "recorded_at": "2026-08-25T16:11:59.702773+00:00"
+      "recorded_at": "2026-08-25T16:11:59.702773+00:00",
+      "steer_spd": 3.75,
+      "steer_dir": 61.5,
+      "near_spd": 1.09,
+      "near_dir": 43.7,
+      "far_spd": 4.17,
+      "far_dir": 66.8,
+      "wn1_steer_sep": 108.1
     },
     {
       "storm": "LALA",
@@ -1689,7 +1927,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 45,
-      "recorded_at": "2026-08-25T21:56:30.616345+00:00"
+      "recorded_at": "2026-08-25T21:56:30.616345+00:00",
+      "steer_spd": 3.16,
+      "steer_dir": 81.4,
+      "near_spd": 0.42,
+      "near_dir": 95.0,
+      "far_spd": 3.49,
+      "far_dir": 74.2,
+      "wn1_steer_sep": -106.5
     },
     {
       "storm": "LALA",
@@ -1711,7 +1956,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 40,
-      "recorded_at": "2026-08-26T16:37:25.978471+00:00"
+      "recorded_at": "2026-08-26T16:37:25.978471+00:00",
+      "steer_spd": 3.21,
+      "steer_dir": 65.5,
+      "near_spd": 1.13,
+      "near_dir": 58.9,
+      "far_spd": 4.96,
+      "far_dir": 57.9,
+      "wn1_steer_sep": 83.8
     },
     {
       "storm": "LALA",
@@ -1733,7 +1985,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 40,
-      "recorded_at": "2026-08-27T14:35:40.591703+00:00"
+      "recorded_at": "2026-08-27T14:35:40.591703+00:00",
+      "steer_spd": 2.5,
+      "steer_dir": 84.0,
+      "near_spd": 1.24,
+      "near_dir": 95.7,
+      "far_spd": 5.76,
+      "far_dir": 62.9,
+      "wn1_steer_sep": 53.2
     },
     {
       "storm": "LALA",
@@ -1755,7 +2014,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 40,
-      "recorded_at": "2026-08-28T00:34:58.634385+00:00"
+      "recorded_at": "2026-08-28T00:34:58.634385+00:00",
+      "steer_spd": 3.54,
+      "steer_dir": 66.7,
+      "near_spd": 2.14,
+      "near_dir": 86.7,
+      "far_spd": 7.02,
+      "far_dir": 59.2,
+      "wn1_steer_sep": 32.0
     },
     {
       "storm": "MOKE",
@@ -1865,7 +2131,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 45,
-      "recorded_at": "2026-08-23T04:19:30.554036+00:00"
+      "recorded_at": "2026-08-23T04:19:30.554036+00:00",
+      "steer_spd": 4.87,
+      "steer_dir": 267.6,
+      "near_spd": 4.51,
+      "near_dir": 335.3,
+      "far_spd": 3.74,
+      "far_dir": 239.3,
+      "wn1_steer_sep": 96.5
     },
     {
       "storm": "MOKE",
@@ -1887,7 +2160,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 45,
-      "recorded_at": "2026-08-23T09:55:26.398109+00:00"
+      "recorded_at": "2026-08-23T09:55:26.398109+00:00",
+      "steer_spd": 5.32,
+      "steer_dir": 255.7,
+      "near_spd": 3.36,
+      "near_dir": 337.7,
+      "far_spd": 3.95,
+      "far_dir": 229.6,
+      "wn1_steer_sep": 112.3
     },
     {
       "storm": "MOKE",
@@ -1909,7 +2189,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 40,
-      "recorded_at": "2026-08-23T15:53:32.404135+00:00"
+      "recorded_at": "2026-08-23T15:53:32.404135+00:00",
+      "steer_spd": 4.58,
+      "steer_dir": 251.7,
+      "near_spd": 3.05,
+      "near_dir": 332.8,
+      "far_spd": 3.06,
+      "far_dir": 233.7,
+      "wn1_steer_sep": 124.4
     },
     {
       "storm": "MOKE",
@@ -1931,7 +2218,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 35,
-      "recorded_at": "2026-08-23T21:51:55.634384+00:00"
+      "recorded_at": "2026-08-23T21:51:55.634384+00:00",
+      "steer_spd": 4.98,
+      "steer_dir": 253.8,
+      "near_spd": 3.06,
+      "near_dir": 312.3,
+      "far_spd": 2.62,
+      "far_dir": 232.1,
+      "wn1_steer_sep": 109.6
     },
     {
       "storm": "MOKE",
@@ -1953,7 +2247,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 35,
-      "recorded_at": "2026-08-24T04:25:10.955296+00:00"
+      "recorded_at": "2026-08-24T04:25:10.955296+00:00",
+      "steer_spd": 4.17,
+      "steer_dir": 259.8,
+      "near_spd": 3.27,
+      "near_dir": 320.4,
+      "far_spd": 2.1,
+      "far_dir": 219.5,
+      "wn1_steer_sep": 105.3
     },
     {
       "storm": "MOKE",
@@ -1975,7 +2276,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 30,
-      "recorded_at": "2026-08-24T10:20:16.215929+00:00"
+      "recorded_at": "2026-08-24T10:20:16.215929+00:00",
+      "steer_spd": 3.99,
+      "steer_dir": 249.5,
+      "near_spd": 3.21,
+      "near_dir": 303.8,
+      "far_spd": 2.39,
+      "far_dir": 217.1,
+      "wn1_steer_sep": 96.3
     },
     {
       "storm": "MOKE",
@@ -1997,7 +2305,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 30,
-      "recorded_at": "2026-08-24T16:06:49.491553+00:00"
+      "recorded_at": "2026-08-24T16:06:49.491553+00:00",
+      "steer_spd": 3.63,
+      "steer_dir": 249.2,
+      "near_spd": 3.92,
+      "near_dir": 304.0,
+      "far_spd": 1.73,
+      "far_dir": 212.2,
+      "wn1_steer_sep": 94.5
     },
     {
       "storm": "MOKE",
@@ -2019,7 +2334,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 30,
-      "recorded_at": "2026-08-24T21:57:32.674589+00:00"
+      "recorded_at": "2026-08-24T21:57:32.674589+00:00",
+      "steer_spd": 3.71,
+      "steer_dir": 256.1,
+      "near_spd": 5.1,
+      "near_dir": 306.4,
+      "far_spd": 2.02,
+      "far_dir": 212.9,
+      "wn1_steer_sep": 81.2
     },
     {
       "storm": "MOKE",
@@ -2041,7 +2363,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 30,
-      "recorded_at": "2026-08-25T04:19:48.391153+00:00"
+      "recorded_at": "2026-08-25T04:19:48.391153+00:00",
+      "steer_spd": 3.38,
+      "steer_dir": 278.6,
+      "near_spd": 5.31,
+      "near_dir": 322.6,
+      "far_spd": 1.72,
+      "far_dir": 219.0,
+      "wn1_steer_sep": 64.2
     },
     {
       "storm": "MOKE",
@@ -2063,7 +2392,14 @@
       "saddle": null,
       "advisory_time": null,
       "wind_kts": 30,
-      "recorded_at": "2026-08-25T10:04:04.715287+00:00"
+      "recorded_at": "2026-08-25T10:04:04.715287+00:00",
+      "steer_spd": 3.0,
+      "steer_dir": 271.8,
+      "near_spd": 5.41,
+      "near_dir": 321.6,
+      "far_spd": 1.98,
+      "far_dir": 214.7,
+      "wn1_steer_sep": 61.6
     },
     {
       "storm": "NANGKA",
@@ -2411,7 +2747,14 @@
       },
       "advisory_time": "230300",
       "wind_kts": 35,
-      "recorded_at": "2026-08-23T04:19:30.243857+00:00"
+      "recorded_at": "2026-08-23T04:19:30.243857+00:00",
+      "steer_spd": 2.11,
+      "steer_dir": 115.0,
+      "near_spd": 1.21,
+      "near_dir": 158.6,
+      "far_spd": 1.34,
+      "far_dir": 72.0,
+      "wn1_steer_sep": -110.9
     },
     {
       "storm": "NARRA",
@@ -2442,7 +2785,14 @@
       },
       "advisory_time": "230900",
       "wind_kts": 35,
-      "recorded_at": "2026-08-23T09:55:25.973200+00:00"
+      "recorded_at": "2026-08-23T09:55:25.973200+00:00",
+      "steer_spd": 2.3,
+      "steer_dir": 110.2,
+      "near_spd": 1.59,
+      "near_dir": 125.7,
+      "far_spd": 1.5,
+      "far_dir": 58.2,
+      "wn1_steer_sep": -94.3
     },
     {
       "storm": "NARRA",
@@ -2473,7 +2823,14 @@
       },
       "advisory_time": "231500",
       "wind_kts": 40,
-      "recorded_at": "2026-08-23T15:53:32.036500+00:00"
+      "recorded_at": "2026-08-23T15:53:32.036500+00:00",
+      "steer_spd": 2.55,
+      "steer_dir": 136.2,
+      "near_spd": 1.79,
+      "near_dir": 149.5,
+      "far_spd": 0.64,
+      "far_dir": 63.1,
+      "wn1_steer_sep": -147.5
     },
     {
       "storm": "NARRA",
@@ -2504,7 +2861,14 @@
       },
       "advisory_time": "232100",
       "wind_kts": 40,
-      "recorded_at": "2026-08-23T21:51:55.259282+00:00"
+      "recorded_at": "2026-08-23T21:51:55.259282+00:00",
+      "steer_spd": 2.25,
+      "steer_dir": 132.5,
+      "near_spd": 1.4,
+      "near_dir": 139.7,
+      "far_spd": 0.7,
+      "far_dir": 32.5,
+      "wn1_steer_sep": -156.4
     },
     {
       "storm": "NARRA",
@@ -2535,7 +2899,14 @@
       },
       "advisory_time": "240300",
       "wind_kts": 40,
-      "recorded_at": "2026-08-24T04:25:10.563197+00:00"
+      "recorded_at": "2026-08-24T04:25:10.563197+00:00",
+      "steer_spd": 2.09,
+      "steer_dir": 144.7,
+      "near_spd": 1.74,
+      "near_dir": 127.2,
+      "far_spd": 0.27,
+      "far_dir": 313.4,
+      "wn1_steer_sep": 168.8
     },
     {
       "storm": "NARRA",
@@ -2566,7 +2937,14 @@
       },
       "advisory_time": "240900",
       "wind_kts": 40,
-      "recorded_at": "2026-08-24T10:20:15.836211+00:00"
+      "recorded_at": "2026-08-24T10:20:15.836211+00:00",
+      "steer_spd": 1.86,
+      "steer_dir": 134.6,
+      "near_spd": 2.38,
+      "near_dir": 110.0,
+      "far_spd": 0.45,
+      "far_dir": 7.2,
+      "wn1_steer_sep": -165.9
     },
     {
       "storm": "NARRA",
@@ -2597,7 +2975,14 @@
       },
       "advisory_time": "241500",
       "wind_kts": 40,
-      "recorded_at": "2026-08-24T16:06:49.155608+00:00"
+      "recorded_at": "2026-08-24T16:06:49.155608+00:00",
+      "steer_spd": 1.61,
+      "steer_dir": 158.6,
+      "near_spd": 1.93,
+      "near_dir": 123.4,
+      "far_spd": 0.54,
+      "far_dir": 277.0,
+      "wn1_steer_sep": 98.8
     },
     {
       "storm": "NARRA",
@@ -2628,7 +3013,14 @@
       },
       "advisory_time": "242100",
       "wind_kts": 35,
-      "recorded_at": "2026-08-24T21:57:32.280207+00:00"
+      "recorded_at": "2026-08-24T21:57:32.280207+00:00",
+      "steer_spd": 0.7,
+      "steer_dir": 140.4,
+      "near_spd": 2.72,
+      "near_dir": 84.6,
+      "far_spd": 0.76,
+      "far_dir": 334.2,
+      "wn1_steer_sep": -109.8
     },
     {
       "storm": "NARRA",
@@ -2659,7 +3051,14 @@
       },
       "advisory_time": "250300",
       "wind_kts": 35,
-      "recorded_at": "2026-08-25T04:19:48.025200+00:00"
+      "recorded_at": "2026-08-25T04:19:48.025200+00:00",
+      "steer_spd": 0.45,
+      "steer_dir": 150.3,
+      "near_spd": 2.9,
+      "near_dir": 80.1,
+      "far_spd": 0.47,
+      "far_dir": 326.1,
+      "wn1_steer_sep": -70.8
     },
     {
       "storm": "NARRA",
@@ -2690,7 +3089,14 @@
       },
       "advisory_time": "250900",
       "wind_kts": 40,
-      "recorded_at": "2026-08-25T10:04:04.537977+00:00"
+      "recorded_at": "2026-08-25T10:04:04.537977+00:00",
+      "steer_spd": 0.97,
+      "steer_dir": 87.0,
+      "near_spd": 3.55,
+      "near_dir": 72.8,
+      "far_spd": 0.42,
+      "far_dir": 56.2,
+      "wn1_steer_sep": -41.4
     },
     {
       "storm": "NARRA",
@@ -2721,7 +3127,14 @@
       },
       "advisory_time": "251500",
       "wind_kts": 30,
-      "recorded_at": "2026-08-25T16:11:59.561115+00:00"
+      "recorded_at": "2026-08-25T16:11:59.561115+00:00",
+      "steer_spd": 1.07,
+      "steer_dir": 151.6,
+      "near_spd": 2.66,
+      "near_dir": 74.1,
+      "far_spd": 0.64,
+      "far_dir": 180.8,
+      "wn1_steer_sep": -126.7
     },
     {
       "storm": "NINETEEN",
@@ -2814,7 +3227,14 @@
       },
       "advisory_time": "230300",
       "wind_kts": 30,
-      "recorded_at": "2026-08-23T04:19:30.402328+00:00"
+      "recorded_at": "2026-08-23T04:19:30.402328+00:00",
+      "steer_spd": 0.7,
+      "steer_dir": 326.6,
+      "near_spd": 4.83,
+      "near_dir": 35.0,
+      "far_spd": 4.42,
+      "far_dir": 275.6,
+      "wn1_steer_sep": 45.6
     },
     {
       "storm": "NINETEEN",
@@ -2845,7 +3265,14 @@
       },
       "advisory_time": "230900",
       "wind_kts": 30,
-      "recorded_at": "2026-08-23T09:55:26.262766+00:00"
+      "recorded_at": "2026-08-23T09:55:26.262766+00:00",
+      "steer_spd": 0.34,
+      "steer_dir": 36.4,
+      "near_spd": 5.48,
+      "near_dir": 53.8,
+      "far_spd": 4.16,
+      "far_dir": 269.9,
+      "wn1_steer_sep": -20.3
     },
     {
       "storm": "NINETEEN",
@@ -2876,7 +3303,14 @@
       },
       "advisory_time": "231500",
       "wind_kts": 30,
-      "recorded_at": "2026-08-23T15:53:32.227229+00:00"
+      "recorded_at": "2026-08-23T15:53:32.227229+00:00",
+      "steer_spd": 1.86,
+      "steer_dir": 251.0,
+      "near_spd": 4.7,
+      "near_dir": 73.6,
+      "far_spd": 4.63,
+      "far_dir": 267.0,
+      "wn1_steer_sep": 132.9
     },
     {
       "storm": "NINETEEN",
@@ -2907,7 +3341,14 @@
       },
       "advisory_time": "232100",
       "wind_kts": 30,
-      "recorded_at": "2026-08-23T21:51:55.453390+00:00"
+      "recorded_at": "2026-08-23T21:51:55.453390+00:00",
+      "steer_spd": 1.91,
+      "steer_dir": 258.6,
+      "near_spd": 3.53,
+      "near_dir": 64.4,
+      "far_spd": 3.4,
+      "far_dir": 261.1,
+      "wn1_steer_sep": 107.2
     },
     {
       "storm": "PEILOU",
@@ -3246,7 +3687,52 @@
       },
       "advisory_time": null,
       "wind_kts": null,
-      "recorded_at": "2026-09-01T03:13:03.862444+00:00"
+      "recorded_at": "2026-09-01T03:13:03.862444+00:00",
+      "steer_spd": 3.92,
+      "steer_dir": 21.9,
+      "near_spd": 1.42,
+      "near_dir": 286.8,
+      "far_spd": 4.33,
+      "far_dir": 41.5,
+      "wn1_steer_sep": -106.6
+    },
+    {
+      "storm": "PILANDOK",
+      "storm_id": null,
+      "cycle": "2026-09-01T00:00",
+      "center_lat": 22.3,
+      "center_lon": 131.3,
+      "wn1_phi": 258.1,
+      "ellipt": 1.28,
+      "wn1_amp": 5.9,
+      "asym": 4.77,
+      "mag_F_nT": 42679.0,
+      "uq_level": "LOW",
+      "amp_thresh": 7.0,
+      "steer_spd": 4.13,
+      "steer_dir": 8.9,
+      "near_spd": 1.02,
+      "near_dir": 288.3,
+      "far_spd": 3.94,
+      "far_dir": 38.1,
+      "wn1_steer_sep": -110.8,
+      "dh_curl": -4.206e-05,
+      "H_core": 4.455e-05,
+      "H_shell": 2.49e-06,
+      "dh_mode": "collapse",
+      "saddle": {
+        "n_saddle": 185,
+        "window_deg": 6.0,
+        "D_obs": 0.913,
+        "D_fill_null": 0.903,
+        "D_circle_null": 0.863,
+        "D_all_points": 1.098,
+        "D_fold": 0.01,
+        "z_vs_circle": 5.76
+      },
+      "advisory_time": null,
+      "wind_kts": null,
+      "recorded_at": "2026-09-01T04:27:41.848551+00:00"
     },
     {
       "storm": "POTENTIAL TROPICAL CYCLONE ONE",
@@ -3787,7 +4273,14 @@
       },
       "advisory_time": "230300",
       "wind_kts": 110,
-      "recorded_at": "2026-08-23T04:19:30.078190+00:00"
+      "recorded_at": "2026-08-23T04:19:30.078190+00:00",
+      "steer_spd": 2.6,
+      "steer_dir": 303.8,
+      "near_spd": 5.98,
+      "near_dir": 316.6,
+      "far_spd": 0.38,
+      "far_dir": 196.4,
+      "wn1_steer_sep": 11.1
     },
     {
       "storm": "SAUDEL",
@@ -3818,7 +4311,14 @@
       },
       "advisory_time": "230900",
       "wind_kts": 110,
-      "recorded_at": "2026-08-23T09:55:26.117779+00:00"
+      "recorded_at": "2026-08-23T09:55:26.117779+00:00",
+      "steer_spd": 1.3,
+      "steer_dir": 293.4,
+      "near_spd": 4.36,
+      "near_dir": 326.2,
+      "far_spd": 0.97,
+      "far_dir": 131.9,
+      "wn1_steer_sep": 21.2
     },
     {
       "storm": "SAUDEL",
@@ -3849,7 +4349,14 @@
       },
       "advisory_time": "231500",
       "wind_kts": 110,
-      "recorded_at": "2026-08-23T15:53:31.847248+00:00"
+      "recorded_at": "2026-08-23T15:53:31.847248+00:00",
+      "steer_spd": 2.1,
+      "steer_dir": 272.3,
+      "near_spd": 4.52,
+      "near_dir": 299.2,
+      "far_spd": 0.93,
+      "far_dir": 133.8,
+      "wn1_steer_sep": 16.5
     },
     {
       "storm": "SAUDEL",
@@ -3880,7 +4387,14 @@
       },
       "advisory_time": "232100",
       "wind_kts": 110,
-      "recorded_at": "2026-08-23T21:51:55.066221+00:00"
+      "recorded_at": "2026-08-23T21:51:55.066221+00:00",
+      "steer_spd": 1.53,
+      "steer_dir": 303.2,
+      "near_spd": 5.91,
+      "near_dir": 292.2,
+      "far_spd": 1.97,
+      "far_dir": 95.8,
+      "wn1_steer_sep": -17.7
     },
     {
       "storm": "SAUDEL",
@@ -3911,7 +4425,14 @@
       },
       "advisory_time": "240300",
       "wind_kts": 110,
-      "recorded_at": "2026-08-24T04:25:10.361363+00:00"
+      "recorded_at": "2026-08-24T04:25:10.361363+00:00",
+      "steer_spd": 1.65,
+      "steer_dir": 319.7,
+      "near_spd": 6.8,
+      "near_dir": 300.7,
+      "far_spd": 2.13,
+      "far_dir": 95.9,
+      "wn1_steer_sep": -34.7
     },
     {
       "storm": "SAUDEL",
@@ -3942,7 +4463,14 @@
       },
       "advisory_time": "240900",
       "wind_kts": 105,
-      "recorded_at": "2026-08-24T10:20:15.639080+00:00"
+      "recorded_at": "2026-08-24T10:20:15.639080+00:00",
+      "steer_spd": 0.99,
+      "steer_dir": 348.7,
+      "near_spd": 6.67,
+      "near_dir": 307.1,
+      "far_spd": 3.1,
+      "far_dir": 94.6,
+      "wn1_steer_sep": -66.9
     },
     {
       "storm": "SAUDEL",
@@ -3973,7 +4501,14 @@
       },
       "advisory_time": "241500",
       "wind_kts": 100,
-      "recorded_at": "2026-08-24T16:06:48.980712+00:00"
+      "recorded_at": "2026-08-24T16:06:48.980712+00:00",
+      "steer_spd": 1.35,
+      "steer_dir": 318.4,
+      "near_spd": 7.49,
+      "near_dir": 301.2,
+      "far_spd": 3.04,
+      "far_dir": 97.5,
+      "wn1_steer_sep": -14.3
     },
     {
       "storm": "SAUDEL",
@@ -4004,7 +4539,14 @@
       },
       "advisory_time": "242100",
       "wind_kts": 95,
-      "recorded_at": "2026-08-24T21:57:32.076907+00:00"
+      "recorded_at": "2026-08-24T21:57:32.076907+00:00",
+      "steer_spd": 1.43,
+      "steer_dir": 27.6,
+      "near_spd": 7.02,
+      "near_dir": 313.6,
+      "far_spd": 4.45,
+      "far_dir": 91.7,
+      "wn1_steer_sep": -66.9
     },
     {
       "storm": "SAUDEL",
@@ -4035,7 +4577,14 @@
       },
       "advisory_time": "250300",
       "wind_kts": 90,
-      "recorded_at": "2026-08-25T04:19:47.836276+00:00"
+      "recorded_at": "2026-08-25T04:19:47.836276+00:00",
+      "steer_spd": 0.92,
+      "steer_dir": 42.0,
+      "near_spd": 7.1,
+      "near_dir": 311.5,
+      "far_spd": 4.36,
+      "far_dir": 96.2,
+      "wn1_steer_sep": -67.0
     },
     {
       "storm": "SAUDEL",
@@ -4066,7 +4615,14 @@
       },
       "advisory_time": "250900",
       "wind_kts": 80,
-      "recorded_at": "2026-08-25T10:04:04.346847+00:00"
+      "recorded_at": "2026-08-25T10:04:04.346847+00:00",
+      "steer_spd": 1.66,
+      "steer_dir": 59.9,
+      "near_spd": 6.08,
+      "near_dir": 312.7,
+      "far_spd": 5.44,
+      "far_dir": 94.9,
+      "wn1_steer_sep": -93.9
     },
     {
       "storm": "SAUDEL",
@@ -4097,7 +4653,14 @@
       },
       "advisory_time": "251500",
       "wind_kts": 85,
-      "recorded_at": "2026-08-25T16:11:59.415559+00:00"
+      "recorded_at": "2026-08-25T16:11:59.415559+00:00",
+      "steer_spd": 1.46,
+      "steer_dir": 65.2,
+      "near_spd": 6.77,
+      "near_dir": 304.7,
+      "far_spd": 5.19,
+      "far_dir": 99.4,
+      "wn1_steer_sep": -124.8
     },
     {
       "storm": "SAUDEL",
@@ -4128,7 +4691,14 @@
       },
       "advisory_time": "252100",
       "wind_kts": 80,
-      "recorded_at": "2026-08-25T21:56:30.461669+00:00"
+      "recorded_at": "2026-08-25T21:56:30.461669+00:00",
+      "steer_spd": 2.81,
+      "steer_dir": 64.1,
+      "near_spd": 5.98,
+      "near_dir": 313.0,
+      "far_spd": 5.69,
+      "far_dir": 92.5,
+      "wn1_steer_sep": -98.6
     },
     {
       "storm": "SAUDEL",
@@ -4159,7 +4729,14 @@
       },
       "advisory_time": "260300",
       "wind_kts": 75,
-      "recorded_at": "2026-08-26T04:20:28.125998+00:00"
+      "recorded_at": "2026-08-26T04:20:28.125998+00:00",
+      "steer_spd": 3.97,
+      "steer_dir": 62.1,
+      "near_spd": 6.19,
+      "near_dir": 313.8,
+      "far_spd": 5.81,
+      "far_dir": 101.5,
+      "wn1_steer_sep": -95.8
     },
     {
       "storm": "SAUDEL",
@@ -4190,7 +4767,14 @@
       },
       "advisory_time": "260900",
       "wind_kts": 85,
-      "recorded_at": "2026-08-26T10:09:23.388350+00:00"
+      "recorded_at": "2026-08-26T10:09:23.388350+00:00",
+      "steer_spd": 5.47,
+      "steer_dir": 74.2,
+      "near_spd": 4.79,
+      "near_dir": 330.9,
+      "far_spd": 6.55,
+      "far_dir": 105.9,
+      "wn1_steer_sep": -102.5
     },
     {
       "storm": "SAUDEL",
@@ -4221,7 +4805,14 @@
       },
       "advisory_time": "261500",
       "wind_kts": 80,
-      "recorded_at": "2026-08-26T16:37:25.845180+00:00"
+      "recorded_at": "2026-08-26T16:37:25.845180+00:00",
+      "steer_spd": 3.78,
+      "steer_dir": 90.0,
+      "near_spd": 2.78,
+      "near_dir": 328.9,
+      "far_spd": 6.02,
+      "far_dir": 114.9,
+      "wn1_steer_sep": -146.9
     },
     {
       "storm": "SAUDEL",
@@ -4252,7 +4843,14 @@
       },
       "advisory_time": "262100",
       "wind_kts": 75,
-      "recorded_at": "2026-08-27T01:01:47.827950+00:00"
+      "recorded_at": "2026-08-27T01:01:47.827950+00:00",
+      "steer_spd": 3.8,
+      "steer_dir": 80.9,
+      "near_spd": 1.92,
+      "near_dir": 316.8,
+      "far_spd": 5.97,
+      "far_dir": 105.2,
+      "wn1_steer_sep": -166.4
     },
     {
       "storm": "SAUDEL",
@@ -4283,7 +4881,14 @@
       },
       "advisory_time": "271500",
       "wind_kts": 75,
-      "recorded_at": "2026-08-27T14:35:40.318938+00:00"
+      "recorded_at": "2026-08-27T14:35:40.318938+00:00",
+      "steer_spd": 3.08,
+      "steer_dir": 88.6,
+      "near_spd": 1.94,
+      "near_dir": 307.6,
+      "far_spd": 6.0,
+      "far_dir": 96.3,
+      "wn1_steer_sep": 96.3
     },
     {
       "storm": "SAUDEL",
@@ -4314,7 +4919,14 @@
       },
       "advisory_time": "272100",
       "wind_kts": 70,
-      "recorded_at": "2026-08-28T00:34:58.250929+00:00"
+      "recorded_at": "2026-08-28T00:34:58.250929+00:00",
+      "steer_spd": 2.96,
+      "steer_dir": 97.0,
+      "near_spd": 3.4,
+      "near_dir": 269.0,
+      "far_spd": 6.01,
+      "far_dir": 91.5,
+      "wn1_steer_sep": 179.7
     },
     {
       "storm": "SEVENTEEN",
@@ -4438,7 +5050,14 @@
       },
       "advisory_time": "260900",
       "wind_kts": 25,
-      "recorded_at": "2026-08-26T10:09:23.277635+00:00"
+      "recorded_at": "2026-08-26T10:09:23.277635+00:00",
+      "steer_spd": 2.71,
+      "steer_dir": 354.4,
+      "near_spd": 4.33,
+      "near_dir": 67.6,
+      "far_spd": 3.5,
+      "far_dir": 285.9,
+      "wn1_steer_sep": 71.6
     },
     {
       "storm": "TWENTY",
@@ -4469,7 +5088,14 @@
       },
       "advisory_time": "261500",
       "wind_kts": 30,
-      "recorded_at": "2026-08-26T16:37:25.702683+00:00"
+      "recorded_at": "2026-08-26T16:37:25.702683+00:00",
+      "steer_spd": 2.81,
+      "steer_dir": 337.1,
+      "near_spd": 3.51,
+      "near_dir": 58.1,
+      "far_spd": 3.66,
+      "far_dir": 287.3,
+      "wn1_steer_sep": 82.9
     },
     {
       "storm": "TWENTY",
@@ -4500,7 +5126,14 @@
       },
       "advisory_time": "262100",
       "wind_kts": 30,
-      "recorded_at": "2026-08-27T01:01:47.716668+00:00"
+      "recorded_at": "2026-08-27T01:01:47.716668+00:00",
+      "steer_spd": 2.5,
+      "steer_dir": 346.8,
+      "near_spd": 4.26,
+      "near_dir": 51.0,
+      "far_spd": 2.79,
+      "far_dir": 278.9,
+      "wn1_steer_sep": 81.2
     },
     {
       "storm": "TWENTY",
@@ -4531,7 +5164,14 @@
       },
       "advisory_time": "271500",
       "wind_kts": 45,
-      "recorded_at": "2026-08-27T14:35:40.176924+00:00"
+      "recorded_at": "2026-08-27T14:35:40.176924+00:00",
+      "steer_spd": 1.3,
+      "steer_dir": 349.8,
+      "near_spd": 5.66,
+      "near_dir": 80.8,
+      "far_spd": 3.57,
+      "far_dir": 263.1,
+      "wn1_steer_sep": 87.0
     },
     {
       "storm": "TWENTY",
@@ -4562,7 +5202,14 @@
       },
       "advisory_time": "272100",
       "wind_kts": 55,
-      "recorded_at": "2026-08-28T00:34:58.053581+00:00"
+      "recorded_at": "2026-08-28T00:34:58.053581+00:00",
+      "steer_spd": 0.94,
+      "steer_dir": 280.7,
+      "near_spd": 5.78,
+      "near_dir": 89.2,
+      "far_spd": 2.53,
+      "far_dir": 258.6,
+      "wn1_steer_sep": 166.6
     },
     {
       "storm": "TWO-C",

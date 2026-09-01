@@ -493,6 +493,33 @@ def bearing_name(deg):
     return names[int((deg + 11.25) // 22.5) % 16]
 
 
+def steering_vec(lat, lon, u, v, clat, clon, r0=8.0, r1=12.0):
+    """環境側測量：指定環帶（度數半徑）嘅 500 hPa 風向量平均。
+
+    回傳 (spd m/s, dirn°) 指向某方向嘅引導流。
+    - r0-r1=8-12°  = 標準 steering（環境引導）
+    - r0-r1=12-18° = 遠環（大尺度場設定，副高西緣繞行）
+    - r0-r1=3-6°   = 近環（內核殘餘 + beta drift）
+    """
+    LON, LAT = np.meshgrid(lon, lat)
+    dlat = np.abs(LAT - clat)
+    dlon = np.abs((LON - clon + 180) % 360 - 180)
+    dist = np.sqrt(dlat**2 + dlon**2)
+    mask = (dist >= r0) & (dist <= r1)
+    if mask.sum() < 10:
+        return None, None
+    u_mean = float(np.nanmean(u[mask]))
+    v_mean = float(np.nanmean(v[mask]))
+    spd = float(np.hypot(u_mean, v_mean))
+    dirn = (float(np.degrees(np.arctan2(u_mean, v_mean))) + 360.0) % 360.0
+    return spd, dirn
+
+
+def ang_diff(a, b):
+    """a−b 嘅最短有號角差（°），範圍 (−180, 180]"""
+    return ((a - b + 180.0) % 360.0) - 180.0
+
+
 # ─── 8. Main ────────────────────────────────────────────────────
 def main():
     ap = argparse.ArgumentParser()
@@ -583,7 +610,23 @@ def main():
             uq_level = None
             amp_thresh = None
 
-        # 2) dH_curl 強度
+        # 2) 環境側並行測量（2026-09-01 新增：四訊號診斷用）
+        try:
+            steer_spd, steer_dir = steering_vec(lat5, lon5, u5, v5, clat, clon, 8.0, 12.0)
+            near_spd, near_dir = steering_vec(lat5, lon5, u5, v5, clat, clon, 3.0, 6.0)
+            far_spd, far_dir = steering_vec(lat5, lon5, u5, v5, clat, clon, 12.0, 18.0)
+            wn1_steer_sep = ang_diff(phi, steer_dir) if (s is not None and steer_dir is not None) else None
+            print(f"  環境: Steering r8-12° = {steer_spd:.2f} m/s→{steer_dir:.1f}° ({bearing_name(steer_dir)})"
+                  + (f"  近環 r3-6° = {near_spd:.2f} m/s→{near_dir:.1f}°" if near_dir else "")
+                  + (f"  遠環 r12-18° = {far_spd:.2f} m/s→{far_dir:.1f}° ({bearing_name(far_dir)})" if far_dir else ""))
+            if wn1_steer_sep is not None:
+                flag = "⚠️ 分離>30°" if abs(wn1_steer_sep) > 30 else ""
+                print(f"         WN1−Steer 分離 = {wn1_steer_sep:+.1f}° {flag}")
+        except Exception as e:
+            print(f"  環境: ❌ {e}")
+            steer_spd = steer_dir = near_spd = near_dir = far_spd = far_dir = wn1_steer_sep = None
+
+        # 3) dH_curl 強度
         try:
             dh, Hc, Hs = compute_dh_curl(zeta, lat8, lon8, clat, clon)
             mode = classify_mode(dh)
@@ -619,6 +662,14 @@ def main():
             "mag_F_nT": round(mag_F, 0) if mag_F is not None else None,
             "uq_level": uq_level,
             "amp_thresh": amp_thresh,
+            # 環境側並行測量（2026-09-01 新增）
+            "steer_spd": round(steer_spd, 2) if steer_spd is not None else None,
+            "steer_dir": round(steer_dir, 1) if steer_dir is not None else None,
+            "near_spd": round(near_spd, 2) if near_spd is not None else None,
+            "near_dir": round(near_dir, 1) if near_dir is not None else None,
+            "far_spd": round(far_spd, 2) if far_spd is not None else None,
+            "far_dir": round(far_dir, 1) if far_dir is not None else None,
+            "wn1_steer_sep": round(wn1_steer_sep, 1) if wn1_steer_sep is not None else None,
             # 強度
             "dh_curl": round(dh, 8) if dh is not None else None,
             "H_core": round(Hc, 8) if Hc is not None else None,

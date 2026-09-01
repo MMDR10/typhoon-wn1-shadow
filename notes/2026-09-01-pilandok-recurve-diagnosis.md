@@ -129,3 +129,51 @@ PILANDOK **四項全中** → 高信心判定「會回馬槍，唔會入內陸�
 2. 計算四訊號 ROC / 閾值
 3. 寫成 `recurve_index.py` 加入 monitor（GFS 一落就出分數）
 4. ⚠️ 樣本少（歷史 case 要 label），需要先盤點有幾多個 case 屬「環境接管型」
+
+## 9. ✅ 落地＋歷史驗證（2026-09-01 完成）
+
+### 9a. monitor 升級：環境側並行測量（已完成，commit 即將 push）
+
+- `typhoon_monitor.py` 新增 `steering_vec()`（r0-r1 環帶風向量平均）+ `ang_diff()`
+- 每個 cycle 自動量並寫入 record：`steer_dir/steer_spd`(8-12°)、`near_dir/near_spd`(3-6°)、`far_dir/far_spd`(12-18°)、`wn1_steer_sep`
+- 每個颱風由 genesis 開始就有「雙軌序列」（結構 vs 環境），唔使等疑似轉向先補測
+- 已用 GFS 9/1 00Z PILANDOK 實測：steer 8.9°N 4.13m/s / 遠環 38.1°NE / sep −110.8° ✅
+
+### 9b. 歷史回填（backfill_environmental.py，已完成）
+
+- NOMADS filter 只保留 8/27 起（更早 403/404）→ **88 條**歷史記錄成功回填環境側（8/23–9/1）
+- 覆蓋：SAUDEL 18、LALA 13、MOKE 10、ETAU 10、NARRA 11、BANG-LANG 6、等
+- 未覆蓋（8/19 之前）：SAUDEL 頭段、SEVENTEEN、TWO-C 等 82 條（NOMADS 冇場；AWS 全檔 500MB 太重）
+
+### 9c. 歷史驗證結果（用實際移動方向對照 sep）🔍
+
+逐段計實際移動方向 vs steering，判讀：
+
+| 案例 | 移動 vs steer | sep | 結論 |
+|------|--------------|-----|------|
+| **MOKE** | 一直西行 (266-278°) = steer 西 (249-279°) | +61~+124 恆大 | ⚠️ **反例**：sep >90° 但冇轉向——因 steer 本身未轉，颱風照跟 |
+| **BANG-LANG** | steer 轉 NE (48°) 後移動開始轉 (344°) | −43→−68 | ✅ 環境接管進行中：steer 先轉、移動後追 |
+| **ETAU** | 移動追上 steer (74° vs 82°) | −18~+39→收窄 | ✅ 漸進轉向完成：sep 由大收細 = 移動追到環境 |
+| **SAUDEL** | steer 已轉東 (90°) 但移動仍西北西 (300°) | −146/−166 負大 | ⚠️ 過渡期：環境已轉、移動未轉（是否最終轉向需後續 cycle 確認） |
+| **NARRA** | 原地打圈，steer 穩定東南 (110-160°) | −70~−168 | ❌ 弱系統/殘餘：sep 大但唔係回馬槍 |
+| **94W/PILANDOK** | steer 已轉 N~NNE，移動近停 | −91→−110 擴大 | ✅ 回馬槍倒數（當刻） |
+
+### 9d. 關鍵修正：四訊號唔係全部都掂 ❗
+
+**歷史驗證推翻咗「sep >30° 單獨 = 回馬槍」嘅簡化版：**
+
+1. **sep 大但 steer 未轉**（MOKE：steer 西 + sep +124）→ 颱風照跟 steer 西行，**冇回馬槍**——sep 大只係 WN1 自身 bias/中心誤差或結構鬆散，唔係轉向訊號
+2. **sep 大但 steer 穩定東南**（NARRA 弱系統）→ 唔係回馬槍
+3. **真正「環境接管」組合**：steer 已轉東北（非西向）**＋** sep 同步變大 **＋** 移動開始追上 steer（BANG-LANG、ETAU 轉向段）
+
+修正後判據（**待更多樣本驗證**）：
+
+| 訊號 | 回馬槍（環境接管） | 假陽性風險 |
+|------|------------------|-----------|
+| ① steering 已轉 N~NE（非西） | ✅ 必須 | MOKE：steer 西→唔算 |
+| ② 遠環 NE 繞行 | ✅ 輔助 | — |
+| ③ WN1−Steer 分離 >30° | 輔助（唔係獨立足夠條件） | MOKE/NARRA 反例 |
+| ④ 結構退化 | 輔助 | — |
+| **⑤ 實際移動方向 vs steering 方向一致** | **驗證回馬槍進行式：移動開始向 steer 靠攏** | SAUDEL：steer 已轉但移動未轉——未確認 |
+
+**結論**：回馬槍診斷一定要用「**steering 轉向**」做主訊號（環境個邊），WN1 sep 只係輔助確認「颱風未跟到」。單靠 WN1−Steer 分離會有 MOKE/NARRA 假陽性。PILANDOK 之所以判得啱，係因為 steering 本身已明確轉 N~NNE（4 m/s）而唔係淨係計 sep。
