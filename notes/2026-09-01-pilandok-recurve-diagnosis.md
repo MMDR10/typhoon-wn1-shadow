@@ -250,3 +250,57 @@ PILANDOK **四項全中** → 高信心判定「會回馬槍，唔會入內陸�
 ### 收尾
 - 工具：`recurve_index.py`（--storm NAME / --all / --cycles N）
 - 未做：已入 monitor 自動輸出（下一步可加），歷史負面對照組未足
+
+## 12. ✅ 歷史 6 颱風回測（recurve_backtest_6typhoon.py，2026-09-01 完成）
+
+> MKP 問題：「先獨立吧，如終數據不多，之前數據有沒有可能測到之前颱風？」
+> → **可以！** 用 8 月已下載嘅 ERA5 500 hPa 場（HATO/MANGKHUT/SAOLA/MERANTI/HAGIBIS/GONI，
+> 76 個有效樣本），重算 steering/far/WN1 相位 → 直接餵入 recurve_index 計分。
+
+### 做法
+- 合併三個已有 JSON：`steering_500hpa_wn1_results.json`（steer_8_12 + center）＋
+  `wn1_500_vs_200.json`（ellipt500/amp500/phi500）＋ `wn1_forward_validation.json`（wind/move）
+- far_dir(12-18°) 由 ERA5 檔重算（`compute_far_dir`，同 monitor `steering_vec` 一致）
+- 新 script：`projects/typhoon-dh-curl/recurve_backtest_6typhoon.py`（獨立實作 compute_index，唔改原檔）
+
+### ⚠️ 關鍵發現：4/5 登陸型颱風誤報 HIGH（假陽性）
+
+| 颱風 | HIGH 段數/總數 | max 指數 | 真相 | 判讀 |
+|------|-------------|---------|------|------|
+| **HAGIBIS** | 4/15 | 9.16 | 登陸日本（真 recurve） | ✅ 真陽性 |
+| HATO | 0/5 | 5.87 | 登陸珠海→內陸 | ✅ 冇誤報 |
+| GONI | 1/10 | 8.03 | 登陸呂宋→越南 | ❌ 誤報 HIGH |
+| MANGKHUT | 2/18 | 7.56 | 登陸廣東→內陸 | ❌ 誤報 HIGH |
+| MERANTI | 2/10 | 9.33 | 登陸廈門→內陸 | ❌ 誤報 HIGH |
+| SAOLA | 4/18 | 9.04 | 登陸珠海→內陸(looping) | ❌ 誤報 HIGH |
+
+### 假陽性根源診斷（訊號統計）
+
+- **S3 分離度 |sep|：mean 89.7°、median 90.2°、>30° 佔 80%、>60° 佔 63%**
+  → S3 對 500 hPa ERA5 歷史樣本幾乎唔辨別（WN1 相位同 steering 天然差 ~90°），
+    加權 2 分近乎白送，係 MOST 假陽性嘅主要推手
+- **S5 滯後：=1.0 觸發率 29%、=0.3 淺層 63%、合共 92% 樣本都有 lag>0**
+  → S5 對「登陸前正常轉向」同樣觸發（steering 轉 + 移動未跟喺登陸前都會出現）
+- S1（steering 對 NE 對齊）：GONI/MERANTI/SAOLA 誤報時 S1 都高（0.82-1.00）
+  → 登陸前颱風靠近副高西緣，steering 本來就會轉 NE——同回馬槍前嘅環境轉向無法由
+    S1-S5 純幾何訊號區分
+
+### 呢個回測嘅價值
+
+1. **填補咗「負面對照」缺口嘅第一步**（之前 §9c 只得 2026 live 樣本）
+2. 證實 recurve_index 嘅**純幾何五訊號對「登陸型」颱風有 ~66-80% 假陽性率**
+   （4/5 個登陸颱風至少有一段 HIGH）；只有 HAGIBIS 呢種真 recurve 先該 HIGH
+3. 8/22 已實錘 WN1-移動關係非線性，今次確認**「STEERING 轉 NE」本身唔區分回馬槍 vs 登陸**——
+   真正分水嶺可能係：陸地/海岸位置 + 颱風離海岸距離（landfall gate）
+
+### 建議（未做，待 MKP 決定）
+
+- A. **加 landfall gate**：countdown 到最近海岸線距離；太近陸地時 S1/S3/S5 唔好計（或降權）
+  ——用簡單 coastline distance（例如 with geopandas Natural Earth 或者簡化球面點集）
+- B. 保留 HIGH 但標註「誤報風險」：HIGH 定性為「環境已轉向」警報而唔係「一定回馬槍」
+- C. 重新校準權重：S3 降權（歷史度數顯示冇辨別力）、S5 只喺「遠離陸地」先計
+- D. 純記錄：回測當「已知限制」收檔，唔改工具
+
+### 產出
+- `projects/typhoon-dh-curl/recurve_backtest_6typhoon.py`（可重跑）
+- 本節 §12 記錄
