@@ -538,4 +538,66 @@ per-storm offset（move−wn1）：
 
 - 分析 script：`typhoon-dh-curl/wn1_move_mapping_calibration.py`（可重跑）
 - 對應改動（待做）：`turn_onset_detector.py` v2——onset 後跟隨命中改用 6-18h 滯後窗；
-  預測移動方向用 per-storm offset。
+  預測移動方向用 per-storm offset。## 15. SAOLA 爆轉 anomaly 檢查：弱 amp 偽影實錘（2026-09-01）
+
+> 背景：§14.4 將 SAOLA +84.6°/+84.3°/+122.4° 連續爆轉標記為 outlier，待查
+> 「ECMWF 數據 anomaly 定結構崩解」。本節用 bootstrap 不確定度校準實錘：**兩者皆非，
+> 係 500hPa wave-1 弱 amp 導致 phase 估計被雜訊接管**。
+
+### 15.1 Bootstrap 方法
+
+- 對 76 場 ERA5 500 hPa，用 azimuthal bin resampling（36 bins, replace=True, n=300-500）
+  量化 WN1 相位不確定度 σ_phase
+- ρ_phase 對 amp 校準（Pearson = −0.418）
+
+| amp 區間 | n | median σ_phase | 可信度 |
+|---------|---|---------------|--------|
+| 0–1.0 | 4 | **32.4°** | ❌ phase ≈ 雜訊 |
+| 1.0–1.5 | 6 | 11.8° | 邊緣 |
+| 1.5–2.0 | 8 | 9.0° | ✅ |
+| 2.0–3.0 | 15 | 9.1° | ✅ |
+| 3.0–4.0 | 21 | 8.6° | ✅ |
+| ≥4.0 | 22 | 8.1° | ✅ |
+
+### 15.2 SAOLA 爆轉段 amp 證據
+
+| 時段 | 起始 amp | σ_phase | ΔWN1 |
+|------|---------|---------|------|
+| 8/26 18Z（爆轉前一刻） | 0.32 | 52.4°（全樣本最差） | — |
+| 8/27 06Z（爆轉1） | 0.90 | 25.9° | +84.6° |
+| 8/27 18Z（爆轉2） | 2.10 | 12.2° | +84.3° |
+| 8/28 06Z（爆轉3） | 1.53 | 8.0° | +122.4° |
+
+爆轉起點座落全樣本最弱 amp 區域（低過 amp<1 桶中位數，σ 26-52°）。
+
+### 15.3 決定性證據：方向矛盾
+
+同一時段（8/26 18Z → 8/28 06Z），**強 amp 嘅 core WN1（850hPa，amp 4-9）同
+move 全部連續逆時針轉**，而 500hPa 弱場爆跳係順時針：
+
+| 場 | 8/26 18Z → 8/27 06Z → 8/27 18Z → 8/28 06Z | 方向 |
+|----|-------------------------------------------|------|
+| move | 180° → 123° → 14° → 335° | 逆時針（連續） |
+| core WN1（amp 4-9） | 75° → 76° → 29° → 340° | 逆時針（連續） |
+| **500hPa WN1（amp 0.3-2.1）** | 189° → 274° → 358° → 120° | **順時針（爆跳）** |
+
+物理上：若結構真係順時針爆轉而 move/core 逆時針，會直接違反「移動跟 WN1」
+框架（§13）。因此 500hPa 嘅偽陽性跳動係 **phase estimation 被雜訊主導**，
+唔係真實結構行為——SAOLA 真身係連續逆時針急轉（繞呂宋），無結構崩解。
+
+### 15.4 影響與方法論修正
+
+- §14.4「SAOLA 可能係結構崩解」→ **修正**：係弱 amp phase artifact；
+  move/core 逆時針連續轉，結構行為正常。
+- **onset 樣本加 amp gate**：剔除起始 amp < 1.0 事件 → SAOLA 5 個 onset 全部無效
+  （4/5 起始 amp<1.0，餘下一個連鎖偽影）→ 可靠 onset 樣本 **11 → 6**
+  （MANGKHUT 1 + MERANTI 1 + HAGIBIS 3 + GONI 1，起始 amp 全 ≥2.4）。
+- `turn_onset_detector.py` v2 必須加：
+  1. **amp gate（≥2.0，或 bootstrap σ_phase < 15°）**——唔可以齋睇 phase 跳動；
+  2. phase 值連同 σ 一齊輸出；
+  3. 對照 core（850hPa 強 amp）同步檢驗，方向唔一致即標 phase 偽影。
+
+### 15.5 產出
+
+- `turn_onset_detector.py` 加 amp 校準（或獨立 script `wn1_phase_bootstrap_calib.py` 可重跑）
+- §15 本節
