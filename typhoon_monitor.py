@@ -23,6 +23,7 @@
 """
 import argparse
 import json
+import math
 import re
 import sys
 import time
@@ -34,6 +35,7 @@ import numpy as np
 
 HISTORY_PATH = "typhoon_history.json"
 SUMMARY_PATH = "typhoon_latest.md"
+ONSET_AMP_GATE = 2.0   # WN1 onset 偵測 amp 門檻（§15 bootstrap：amp<1 → σ_phase≈32°）
 CYCLOCANE_HOME = "https://www.cyclocane.com/"
 
 # 鞍點環參數（沿用 phase15 設定）
@@ -493,6 +495,71 @@ def bearing_name(deg):
     return names[int((deg + 11.25) // 22.5) % 16]
 
 
+def move_dir_from_pos(lat1, lon1, lat2, lon2):
+    """由相鄰 cycle 中心位置計算移動方位角（0°=北, 90°=東），與 steering 方向定義一致。"""
+    dlat = lat2 - lat1
+    dlon = (lon2 - lon1) * math.cos(math.radians((lat1 + lat2) / 2.0))
+    if dlat == 0 and dlon == 0:
+        return None
+    return (math.degrees(math.atan2(dlon, dlat)) + 360.0) % 360.0
+
+
+def detect_onset_live(records, amp_gate=2.0, thr=15.0):
+    """WN1 扭轉 onset 偵測（turn_onset_detector v2 移植，2026-09-01）。
+
+    規則（§14/§15/v2）：
+      - amp gate：連續兩段兩端 500hPa WN1 amp 都 ≥ amp_gate（弱 amp = phase 雜訊）
+      - onset = |ΔWN1|>thr 連續 2 段同向；核心段 = 第二段（b→c）
+      - 命中 = 核心段後 6-18h（t+1 或 t+2）移動同方向大轉 > thr
+    回傳 onset 事件列表（含移動驗證，若後續 cycle 已有數據）。
+    """
+    by_storm = {}
+    for r in records:
+        by_storm.setdefault(r["storm"], []).append(r)
+    for k in by_storm:
+        by_storm[k].sort(key=lambda x: x["cycle"])
+
+    events = []
+    for storm, rs in by_storm.items():
+        # 先補每條 record 嘅移動方向（由位置相鄰點算）
+        for i in range(1, len(rs)):
+            a, b = rs[i - 1], rs[i]
+            if "move_dir" not in b or b.get("move_dir") is None:
+                b["move_dir"] = move_dir_from_pos(
+                    a.get("center_lat"), a.get("center_lon"),
+                    b.get("center_lat"), b.get("center_lon"))
+        for i in range(2, len(rs)):
+            a, b, c = rs[i - 2], rs[i - 1], rs[i]
+            amp_a = a.get("wn1_amp"); amp_b = b.get("wn1_amp"); amp_c = c.get("wn1_amp")
+            if None in (amp_a, amp_b, amp_c):
+                continue
+            if amp_a < amp_gate or amp_b < amp_gate or amp_c < amp_gate:
+                continue
+            d1 = ang_diff(b.get("wn1_phi"), a.get("wn1_phi"))
+            d2 = ang_diff(c.get("wn1_phi"), b.get("wn1_phi"))
+            if d1 is None or d2 is None:
+                continue
+            if abs(d1) <= thr or abs(d2) <= thr or d1 * d2 <= 0:
+                continue
+            # 移動跟隨：核心段（b→c）後 t+6h / t+12h
+            m_now = ang_diff(c.get("move_dir"), b.get("move_dir"))
+            m_next = ang_diff(rs[i + 1].get("move_dir"), c.get("move_dir")) if i + 1 < len(rs) else None
+            m_next2 = ang_diff(rs[i + 2].get("move_dir"), rs[i + 1].get("move_dir")) if i + 2 < len(rs) else None
+            hit = False
+            for mt in (m_next, m_next2):
+                if mt is not None and mt * d2 > 0 and abs(mt) > thr:
+                    hit = True
+                    break
+            events.append({
+                "storm": storm, "t0": c["cycle"],
+                "wn1_turn": d2, "amp_b": amp_b, "amp_c": amp_c,
+                "move_turn_now": m_now,
+                "move_turn_next": m_next, "move_turn_next2": m_next2,
+                "hit": hit if (m_next is not None or m_next2 is not None) else None,
+            })
+    return events
+
+
 def steering_vec(lat, lon, u, v, clat, clon, r0=8.0, r1=12.0):
     """環境側測量：指定環帶（度數半徑）嘅 500 hPa 風向量平均。
 
@@ -516,7 +583,9 @@ def steering_vec(lat, lon, u, v, clat, clon, r0=8.0, r1=12.0):
 
 
 def ang_diff(a, b):
-    """a−b 嘅最短有號角差（°），範圍 (−180, 180]"""
+    """a−b 嘅最短有號角差（°），範圍 (−180, 180]；任一為 None 回 None"""
+    if a is None or b is None:
+        return None
     return ((a - b + 180.0) % 360.0) - 180.0
 
 
@@ -696,6 +765,31 @@ def main():
         print(f"\n✅ 新增 {len(new_records)} 條記錄 → {HISTORY_PATH}（總 {len(hist['records'])} 條）")
     else:
         print("\nℹ️ 冇新記錄（全部已存在）")
+
+    # ── WN1 扭轉 onset 偵測（turn_onset_detector v2 自動輸出）──
+    try:
+        onset_events = detect_onset_live(hist["records"])
+        pending = [e for e in onset_events if e["hit"] is None]   # 未有後續 cycle = 正在跟隨中
+        confirmed_hit = [e for e in onset_events if e["hit"] is True]
+        print("\n" + "=" * 78)
+        print(f"🔮 WN1 扭轉 onset 偵測（v2，amp gate ≥ {ONSET_AMP_GATE}）")
+        print("=" * 78)
+        if onset_events:
+            for e in onset_events:
+                if e["hit"] is None:
+                    tag = "⏳ 跟隨中（等 6-18h 移動）"
+                elif e["hit"]:
+                    tag = "✅ 已跟隨命中"
+                else:
+                    tag = "❌ 未跟隨"
+                print(f"  {e['storm']:<10} onset {e['t0'][:16]}  ΔWN1={e['wn1_turn']:+.1f}°"
+                      f"  amp={e['amp_b']:.1f}→{e['amp_c']:.1f}  {tag}")
+        else:
+            print("  （暫無 onset 事件：|ΔWN1|>15° 連續 2 段且 amp≥2.0）")
+        if pending:
+            print(f"\n  ⚠️ {len(pending)} 個 onset 跟隨中——預期 6-18h 內移動跟隨轉向")
+    except Exception as e:
+        print(f"  ⚠️ onset 偵測失敗: {e}")
 
     # Summary
     if new_records and not args.dry_run:
