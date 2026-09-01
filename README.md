@@ -17,6 +17,47 @@
 | 🧭 路徑 | WN1 相位（500 hPa） | 出流非對稱影子 → 移動方向 |
 | 💪 強度 | dH_curl = H_shell − H_core（850 hPa ζ，core=5°/shell=8°） | 負 = 組織化結構；正 = 發散/genesis |
 | 🔗 鞍點環 | 眼牆環帶 (1.5°, 3.0°) 鞍點點集 box-count D_fold | D_fold≈0 且 z_1D 顯著 = 鞍點凝聚成環（渦旋特異結構） |
+| 🔮 轉向 onset | WN1 相位連續扭轉（amp gate + 6-18h 滯後跟隨） | 結構 re-orientation 起動 → 預測移動 6-18h 內跟隨轉向 |
+
+## 🔮 轉向 onset 測試方法原理（2026-09-01 起）
+
+**研究問題：** 颱風「回馬槍」/「急轉向」點樣提前分辨？主流模型視颱風移動為「環境引導流推著走」，本 repo 嘅核心框架反轉呢個假設——
+
+> **颱風移動由結構慣性主導，大氣（steering）只係干擾源。**（框架轉移，§13）
+
+### 核心發現（三層）
+
+**① 移動跟 WN1（結構），唔跟 steering（大氣）**
+76 樣本 70 對 6h 段量度：移動方向 ↔ WN1 相位同期相關 **r=0.695 / dCor 0.521（p=0.002）**；移動方向 ↔ steering 三個 lag 全部 ≈0。即係話颱風「行邊度」由自身結構非對稱（WN1）決定，唔係環境風直接推。
+
+**② 轉向三步次序**（19 個大轉事件 composite）
+
+```
+環境先轉 → 結構抵抗 0-6h（順時針更明顯 −20°）→ WN1 6-18h 追 46° → 移動最後跟
+```
+
+關鍵：onset 觸發後**即刻 6h 移動反而反方向**（64% 反號，Fisher p=0.018）——呢個「抵抗期」係實錘，意味住用即刻窗判「跟唔跟隨」係方法錯誤，必須用 **6-18h 滯後窗**。
+
+**③ 弱 amp 偽影**（SAOLA 案例）
+WN1 phase 嘅可信度由 amplitude 決定。Bootstrap 校準：amp<1.0 時 σ_phase ≈ 32°（phase 幾乎係雜訊）；amp≥1.5 時 σ ≈ 8-9°。SAOLA 三段「+84°/+84°/+122° 爆轉」實錘係弱 amp 偽影——因為同一時段強 amp 嘅 850hPa core 同移動都連續逆時針轉，而弱場 500hPa 順時針爆跳，方向矛盾。**故 onset 偵測必須加 amp gate ≥2.0。**
+
+### 偵測規則（`detect_onset_live`，turn_onset_detector v2）
+
+```
+onset = |ΔWN1| > 15° 連續 2 段（同向）+ 兩端 amp ≥ 2.0
+命中 = onset 後 6-18h（t+1 或 t+2）移動同方向大轉 > 15°
+```
+
+### 驗證結果（amp gate 後）
+
+| 窗 | onset 同號命中 | 對照 | Fisher p |
+|---|---|---|---|
+| t+0 即刻 | 0%（反號 60%） | 0% | — |
+| t+6h | 20% | 8% | 0.387 |
+| t+12h | 50% | 14% | 0.128 |
+| **合併 6-18h** | **75%（3/4）** | 16% | **0.028 ✅** |
+
+⚠️ 樣本細（onset n=5、合併窗 n=4），p=0.028 係方向性提示，非最終實錘——live 數據累積中，預期逐 cycle 驗證「跟隨中」onset 嘅命中率會否收斂到歷史 75%。
 
 ## 📊 Key Numbers（論文核心數字）
 
@@ -39,6 +80,7 @@
    - **WN1 相位 + ellipt**（500 hPa，路徑）
    - **dH_curl**（850 hPa ζ，強度）
    - **鞍點環 D_fold**（850 hPa ζ Morse 分類 + box-count，結構）
+   - **轉向 onset**（WN1 連續扭轉 + amp gate + 6-18h 滯後跟隨驗證）
 4. 冪等寫入 `typhoon_history.json`
 5. 自動 commit push（5 次 retry）
 
@@ -83,6 +125,7 @@ gh workflow run wn1_track.yml -f storms='CHAN-HOM:36.5,142.0;PEILOU:26.0,158.0'
 ## 📋 相關
 
 - 方法詳情：`scripts/wn1_forward_validation.py` / `scripts/wn1_uq_shape.py`（ERA5 76 樣本驗證）
+- 轉向 onset 偵測：`turn_onset_detector.py`（v2，amp gate + 6-18h 滯後窗）；`typhoon_monitor.py::detect_onset_live`（live 自動輸出）
 - 論文：`paper_EN/` `paper_ZH/`（中英雙語、數據出處全列明）
 - Dolphin 自動化參考：`MMDR10/dolphin-watch`（dH_curl 追蹤）
 - 鞍點環方法：Ô-HAT 框架 phase15（眼牆鞍點環 D_fold 簽名）
