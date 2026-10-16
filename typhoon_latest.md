@@ -1,10 +1,11 @@
 # 🌀 Typhoon Monitor 最新追蹤
 
-**GFS 2026-10-15T18:00** — 自動更新 (2026-10-15 23:48 UTC)
+**GFS 2026-10-16T00:00** — 自動更新 (2026-10-16 08:28 UTC)
 
 | 颱風 | 位置 | WN1 相位 | ellipt | UQ | dH_curl | 強度模式 | 鞍點 n | D_fold |
 |------|------|---------|--------|-----|---------|---------|--------|--------|
-| CHAMPI | 11.5N 156.5E | 294.6° | 0.533 | 🟡 MEDIUM | -3.83e-05 | collapse | 198 | 0.012 |
+| CHAMPI | 11.4N 152.7E | 254.8° | 0.639 | 🔴 LOW | -3.62e-05 | collapse | 190 | 0.013 |
+| TROPICAL CYCLONE ONE | -10.8N -163.3E | 153.0° | 0.421 | 🟡 MEDIUM | 3.38e-05 | developing | — | — |
 
 **UQ 機制 v3**（2026-08-15 confound test 修正）：🟢🟢 Very High = ellipt≤0.4 + Amp≥門檻（<20°→10 / 20-30°→7 / ≥30°→5）；🟡 Medium = ellipt≤0.4；🔴 Low = ellipt>0.4。（v3 移除 Mag≥35k 條件：地磁場係緯度偽相關，partial r≈0）
 
