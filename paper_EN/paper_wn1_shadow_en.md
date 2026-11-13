@@ -1,5 +1,26 @@
 # The Wavenumber-1 Eccentric Shadow: A Structural Precursor for Tropical Cyclone Track Direction
 
+> ## 📌 Update v2 (2026-11-13) — Mechanism Evolution & Corrections (real-data audits)
+>
+> 1. **§2.4 UQ filter is CORRECTED.** The "ellipt > 0.4 = untrustworthy" logic did not
+>    survive the 2026-08-21 backtest (n=35, 10 typhoons): the **ellipt 0.4–0.6 band with
+>    Amp ≥ 7 is the most accurate group (mean 11.1°)** — *better* than the ≤0.4 band
+>    (34.8°). **Amplitude is the primary reliability indicator**, not ellipticity alone.
+>    Current mechanism = **UQ v4**: 🟢🟢 = ellipt≤0.4 + Amp ≥ latitude-threshold
+>    (<20°→10 / 20–30°→7 / ≥30°→5); 🟡 = ellipt≤0.6 + Amp≥7; 🔴 = other (incl.
+>    ellipt≤0.4 with low Amp — backtest mean 34.8°). The paper's 76-sample validation
+>    numbers stand as measured; only the *filter's discriminating logic* is revised.
+> 2. **LOO bias correction (2026-08-15):** WN1 + leave-one-out bias correction reaches
+>    **19.4° / median 14.8° / 90.5% < 45°** (LOO ≈ in-sample 19.1° — not look-ahead).
+> 3. **Turning-onset development (2026-09-01):** the "early turning alarm" became a
+>    detector (amp gate ≥2.0, 6–18h lag window; 75% hit, n=4 — directional hint only).
+> 4. **Live out-of-sample status (2026-11-13; 236 samples since 08-23):** stable-structure
+>    storms remain accurate (e.g. SAUDEL 14.8° / 100% < 45°); **recurving/transition
+>    storms degrade strongly** (IN-FA 81°) — the turning regime is the known open gap;
+>    recurve-gating is the active research direction (descriptive; n_eff caveats apply).
+>
+> Full history & current logic: `MMDR10/typhoon-wn1-shadow` (README + notes/).
+
 **Author:** tygtDc (Deep Research)
 **Affiliation:** Independent Research
 **Date:** 2026-08-09
@@ -66,7 +87,7 @@ For each sample at time *t* with WN1 phase φ(t):
 
 ### 2.4 Uncertainty (UQ) Filter
 
-Following the structural-purity rationale, we apply a threshold **ellipt ≤ 0.4** (a WN1-dominated, clean dipole). Samples above threshold are flagged untrustworthy and excluded from the "trusted" statistics. Additional diagnostics (phase jump Δφ, shape transition) were tested but did not add residual discrimination beyond ellipt ≤ 0.4 (see §3.5).
+Following the structural-purity rationale, we apply a threshold **ellipt ≤ 0.4** (a WN1-dominated, clean dipole). Samples above threshold are flagged untrustworthy and excluded from the "trusted" statistics. Additional diagnostics (phase jump Δφ, shape transition) were tested but did not add residual discrimination beyond ellipt ≤ 0.4 (see §3.5). **[Update v2: this filter's discriminating logic is CORRECTED — the 0.4–0.6 band with Amp ≥ 7 is the most accurate group (2026-08-21 backtest); amplitude gating replaced ellipticity as the primary screen; see Update v2 banner.]**
 
 ### 2.5 Reproducibility
 
@@ -125,7 +146,7 @@ Two storms dominate the error budget, with distinct, detectable signatures:
 - **GONI (2020)** — a rapid-intensification case. During RI, internal dynamics dominate over environmental advection; the WN1 phase is temporarily "captured" by the structural dipole of the intensifying core (10 samples, 29.1°). The failure is identifiable: high ellipticity / phase instability during RI onset.
 - **SAOLA (2023)** — a looping storm. The WN1 phase lags behind rapid direction changes (up to 108°/12h turns); it cannot keep up with the evolving steering during loops (18 samples, 44.9°). Signature: phase jump Δφ and strong ellipticity excursions.
 
-Both failure modes carry *diagnostic signatures* that the UQ filter (ellipt ≤ 0.4) largely captures: after filtering, trusted samples reach 21.1° / 90% < 45°. The filter therefore defines an **operating envelope**: when the storm structure is a clean WN1 dipole, the phase is a reliable directional proxy; when it is not, the operator flags itself as untrustworthy rather than silently failing.
+Both failure modes carry *diagnostic signatures* that the UQ filter (ellipt ≤ 0.4) largely captures: after filtering, trusted samples reach 21.1° / 90% < 45°. The filter therefore defines an **operating envelope**: when the storm structure is a clean WN1 dipole, the phase is a reliable directional proxy; when it is not, the operator flags itself as untrustworthy rather than silently failing. **[Update v2: the envelope is revised — ellipt 0.4–0.6 + Amp≥7 outperforms ≤0.4 (8/21 backtest), and the 2026-11-13 live OOS shows the true remaining gap is the recurving/transition regime, not ellipticity per se — see Update v2.]**
 
 ### 3.6 Turning alarm (phase-jump diagnostic)
 
@@ -219,3 +240,18 @@ We position it as a **complementary second-opinion signal** for operational fore
 ---
 
 *All conclusions labeled per evidence-level protocol: ✅ cross-validated (≥2 independent sources/analyses), ⚠️ single-source/limited-sample, ❌ unverified. See individual report artifacts in the repository for full evidence tables.*
+
+
+---
+
+## Update v2 (2026-11-13): Claim-Status Table (real-data evolution)
+
+| Claim (as published 2026-08-09) | Status | Evidence |
+|---|---|---|
+| WN1 phase points at future motion (23.9° / 76 samples; ellipt≤0.4 → 21.1° / 90–91%) | **Stands as measured** | Original pseudo-real-time validation unchanged. |
+| **UQ filter: ellipt > 0.4 = untrustworthy** (§2.4/§3.5) | **CORRECTED** | 2026-08-21 backtest (n=35, 10 typhoons): ellipt 0.4–0.6 + Amp≥7 = **most accurate group, mean 11.1°** vs ≤0.4 band 34.8°; low-Amp + ellipt≤0.4 performs poorly. **Amplitude ≥7 is the strongest UQ indicator** (live 95% < 45° vs backtest 94%, cross-source consistent). Current mechanism = UQ v4 (three tiers; see banner). |
+| — | **Added (2026-08-15)** | LOO bias correction: 19.4° / median 14.8° / 90.5% < 45° (LOO ≈ in-sample 19.1°). |
+| "Early turning alarm" (proposed use case) | **Developed (2026-09-01)** | Turning-onset detector v2: amp gate ≥2.0 + 6–18h lag; 75% hit (3/4) vs 16% control, Fisher p=0.028 — **directional hint, n tiny**. Framework shift documented: movement follows structure (WN1 r=0.695 synchronous) not steering (≈0 at all lags). |
+| Live operating envelope | **Revised (2026-11-13)** | OOS over 236 samples (08-23→11-13): stable-structure storms accurate (SAUDEL 14.8°/100% < 45°, SURIGAE 28°/84%); recurving/transition storms degrade strongly (IN-FA 81°/32%). **The turning regime is the open gap** — recurve-gating research is the active frontier; UQ thresholds deliberately unchanged pending that work (regime-mixed samples → over-fitting risk). |
+
+All numbers above are real-data measurements (repo: scripts + JSONs in `MMDR10/typhoon-wn1-shadow`).
