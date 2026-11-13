@@ -8,7 +8,7 @@
 
 颱風移動主要由 **500 hPa 引導流**控制（76 樣本前瞻驗證：mean 23.9°，隨機 90°；ellipt≤0.4 後 21.1°，<45° 命中 90%）。WN1 = 徑向風傅立葉分解一階模態相位，代表颱風結構非對稱（影子）方向；**相位指向移動方向**時可作前瞻訊號。
 
-**UQ 門檻：** ellipt ≤ 0.4（ellipt = WN2/WN1，細 = 結構單純）
+**UQ 門檻（v4，2026-08-21 backtest 修正）：** 🟢🟢 Very High = ellipt≤0.4 + Amp≥緯度門檻（<20°→10 / 20-30°→7 / ≥30°→5）；🟡 Medium = ellipt≤0.6 + Amp≥7；🔴 Low = 其他（ellipt = WN2/WN1，細 = 結構單純）。註：`wn1_history.json` / `wn1_latest.md` 係舊 pipeline 遺留輸出（2026-08-11 停止），現行數據喺 `typhoon_history.json`。
 
 **多維度監測（2026-08-11 起）：** 每 6h 同時收集三類數據 —
 

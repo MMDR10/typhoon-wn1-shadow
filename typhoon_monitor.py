@@ -727,7 +727,7 @@ def main():
             "ellipt": round(el, 3) if s else None,
             "wn1_amp": round(s["wn1_amp"], 2) if s else None,
             "asym": round(s["asym"], 2) if s else None,
-            # UQ v3（2026-08-15 confound test 修正：移除磁場條件）
+            # UQ v4（2026-08-21 backtest 修正：ellipt 0.4-0.6 + Amp≥7 → MEDIUM）
             "mag_F_nT": round(mag_F, 0) if mag_F is not None else None,
             "uq_level": uq_level,
             "amp_thresh": amp_thresh,
@@ -808,9 +808,10 @@ def main():
                          f"{uq_emoji.get(uq, '—')} {uq} | "
                          f"{r['dh_curl']:.2e} | {r['dh_mode']} | "
                          f"{s.get('n_saddle','—')} | {dfold} |")
-        lines += ["", "**UQ 機制 v3**（2026-08-15 confound test 修正）：🟢🟢 Very High = ellipt≤0.4 + Amp≥門檻"
-                      "（<20°→10 / 20-30°→7 / ≥30°→5）；🟡 Medium = ellipt≤0.4；🔴 Low = ellipt>0.4。"
-                      "（v3 移除 Mag≥35k 條件：地磁場係緯度偽相關，partial r≈0）", ""]
+        lines += ["", "**UQ 機制 v4**（2026-08-21 backtest 修正）：🟢🟢 Very High = ellipt≤0.4 + Amp≥緯度門檻"
+                      "（<20°→10 / 20-30°→7 / ≥30°→5）；🟡 Medium = ellipt≤0.6 + Amp≥7（v4：0.4-0.6 組"
+                      " backtest mean 11.1°，高 Amp 補償橢圓略高）；🔴 Low = 其他（含 ellipt≤0.4 但 Amp "
+                      "唔夠 —— backtest mean 34.8°）。（v3 歷史：移除 Mag≥35k 條件，地磁場係緯度偽相關）", ""]
         Path(SUMMARY_PATH).write_text("\n".join(lines) + "\n")
         print(f"✅ Summary → {SUMMARY_PATH}")
 
